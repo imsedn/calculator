@@ -173,7 +173,6 @@ start(n);*/
 let btn = document.querySelectorAll(".btn");
 let btnResult = document.querySelector(".btn-result");
 let visual = document.querySelector(".visual");
-let result = document.querySelector(".result");
 let btnAc = document.querySelector(".btn-ac");
 let arrayClicked = [];
 let arrayClickedString;
@@ -190,12 +189,16 @@ btn.forEach(function(e) {
 
 btnResult.addEventListener('click', function(){
     let counting = eval(arrayClickedString);
-    result.innerHTML = counting;
+    visual.innerHTML = counting;
+    arrayClicked.length = 0;
+    arrayClickedString = undefined;
+    arrayClicked.push(counting);
+    arrayClickedString = counting;
+
 });
 
 btnAc.addEventListener('click', function(){
     visual.innerHTML = '';
-    result.innerHTML = '';
     arrayClicked.length = 0;
     arrayClickedString = undefined;
 });
