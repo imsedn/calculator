@@ -196,6 +196,8 @@ btnResult.addEventListener('click', function(){
 btnAc.addEventListener('click', function(){
     visual.innerHTML = '';
     result.innerHTML = '';
+    arrayClicked.length = 0;
+    arrayClickedString = undefined;
 });
 
 
