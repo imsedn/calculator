@@ -176,10 +176,23 @@ let visual = document.querySelector(".visual");
 let btnAc = document.querySelector(".btn-ac");
 let arrayClicked = [];
 let arrayClickedString;
+let counting;
 
 btn.forEach(function(e) {
     e.addEventListener( "click" , function() {
         let btnClicked = e.innerHTML;
+        console.log(btnClicked);
+        // console.log(typeof counting);
+        // console.log(arrayClicked.length);
+       
+        if ((btnClicked == " + " || btnClicked == " - " || btnClicked == " * "  || btnClicked == " / ") && (counting != undefined) && (arrayClickedString == 0)) {
+            // console.log(555);
+            arrayClicked.push(counting);
+        }
+        else if ((btnClicked != " + " || btnClicked == " - " || btnClicked == " * "  || btnClicked == " / ") && (counting != undefined) && (arrayClickedString == 0)) {
+            // console.log(777);
+        }
+        
         arrayClicked.push(btnClicked);
         arrayClickedString = arrayClicked.join('');
         visual.innerHTML = arrayClickedString;
@@ -187,22 +200,38 @@ btn.forEach(function(e) {
 })
 
 
+// ((btnClicked == "0"||"1"||"2"||"3"||"4"||"5"||"6"||"7"||"8"||"9"))
+// && (counting != undefined) && (arrayClickedString == undefined)
+
 btnResult.addEventListener('click', function(){
-    let counting = eval(arrayClickedString);
+    counting = eval(arrayClickedString);
     visual.innerHTML = counting;
     arrayClicked.length = 0;
-    arrayClickedString = undefined;
-    arrayClicked.push(counting);
-    arrayClickedString = counting;
-
+    arrayClickedString = 0;
+    // arrayClicked.push(counting);
+    // arrayClickedString = counting;
+    // function remove() {
+    //     arrayClicked.length = 0;
+    // }
+    // setTimeout(remove, 100);
 });
 
 btnAc.addEventListener('click', function(){
-    visual.innerHTML = '';
-    arrayClicked.length = 0;
-    arrayClickedString = undefined;
+    // if (arrayClicked.length > 0) {
+    //     arrayClicked.pop()
+    // }
+    // else {
+        
+    // }
+    visual.innerHTML = '0';
+        arrayClicked.length = 0;
+        arrayClickedString = undefined;
+        counting = undefined;
 });
 
+
+// parseInt(btnClicked)
+// (parseInt(btnClicked) == 0||1||2||3||4||5||6||7||8||9) 
 
 // if (strincSplitedArray[e] != "+") {
 //     
