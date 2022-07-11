@@ -172,6 +172,7 @@ start(n);*/
 
 let btn = document.querySelectorAll(".btn");
 let btnResult = document.querySelector(".btn-result");
+let btnPercentage = document.querySelector(".btn-percentage");
 let visual = document.querySelector(".visual");
 let btnAc = document.querySelector(".btn-ac");
 let arrayClicked = [];
@@ -181,21 +182,39 @@ let counting;
 btn.forEach(function(e) {
     e.addEventListener( "click" , function() {
         let btnClicked = e.innerHTML;
-        console.log(btnClicked);
-        // console.log(typeof counting);
-        // console.log(arrayClicked.length);
+        // console.log(btnClicked);
+
+    
        
         if ((btnClicked == " + " || btnClicked == " - " || btnClicked == " * "  || btnClicked == " / ") && (counting != undefined) && (arrayClickedString == 0)) {
             // console.log(555);
             arrayClicked.push(counting);
         }
-        else if ((btnClicked != " + " || btnClicked == " - " || btnClicked == " * "  || btnClicked == " / ") && (counting != undefined) && (arrayClickedString == 0)) {
-            // console.log(777);
+        // else if ((btnClicked != " + " || btnClicked != " - " || btnClicked != " * "  || btnClicked != " / ") && (counting != undefined) && (arrayClickedString == 0)) {
+        //     // console.log(777);
+        // }
+        
+        let lastElemArrayClicked = arrayClicked[arrayClicked.length - 1];
+        console.log(lastElemArrayClicked);
+
+        if ( (lastElemArrayClicked == " + " || lastElemArrayClicked == " - " || lastElemArrayClicked == " * "  || lastElemArrayClicked == " / ")&&(btnClicked == " + " || btnClicked == " - " || btnClicked == " * "  || btnClicked == " / ")) {
+            arrayClicked.pop();
         }
         
+        if ((btnClicked == ".")&&(lastElemArrayClicked == " + " || lastElemArrayClicked == " - " || lastElemArrayClicked == " * "  || lastElemArrayClicked == " / ")) {
+            // arrayClicked.pop();
+            arrayClicked.push("0");
+            // arrayClicked.push(".")
+        }
+
+        if ((btnClicked == ".")&&(lastElemArrayClicked == ".")) {
+            arrayClicked.pop();
+        }
+
         arrayClicked.push(btnClicked);
         arrayClickedString = arrayClicked.join('');
         visual.innerHTML = arrayClickedString;
+        
     });
 })
 
@@ -204,10 +223,13 @@ btn.forEach(function(e) {
 // && (counting != undefined) && (arrayClickedString == undefined)
 
 btnResult.addEventListener('click', function(){
-    counting = eval(arrayClickedString);
-    visual.innerHTML = counting;
-    arrayClicked.length = 0;
-    arrayClickedString = 0;
+    if (arrayClicked.length != 0 && arrayClickedString != 0) {
+        counting = eval(arrayClickedString);
+        visual.innerHTML = counting;
+        arrayClicked.length = 0;
+        arrayClickedString = 0;
+    }
+   
     // arrayClicked.push(counting);
     // arrayClickedString = counting;
     // function remove() {
@@ -217,17 +239,28 @@ btnResult.addEventListener('click', function(){
 });
 
 btnAc.addEventListener('click', function(){
-    // if (arrayClicked.length > 0) {
-    //     arrayClicked.pop()
-    // }
-    // else {
-        
-    // }
     visual.innerHTML = '0';
-        arrayClicked.length = 0;
-        arrayClickedString = undefined;
-        counting = undefined;
+    arrayClicked.length = 0;
+    arrayClickedString = undefined;
+    counting = undefined;
 });
+
+// btnPercentage.addEventListener('click', function(){
+//     let firstFromTheEndElemArrayClicked = parseInt(arrayClicked[arrayClicked.length - 1]);
+//     let secondFromTheEndElemArrayClicked = parseInt(arrayClicked[arrayClicked.length - 2]);
+//     let thirdFromTheEndElemArrayClicked = parseInt(arrayClicked[arrayClicked.length - 3]);
+//     console.log(firstFromTheEndElemArrayClicked);
+//     // console.log(secondFromTheEndElemArrayClicked);
+//     // console.log(thirdFromTheEndElemArrayClicked);
+
+
+//     let resultPercentage;
+//     if (secondFromTheEndElemArrayClicked = " - ") {
+//         console.log(222);
+//         resultPercentage = eval(thirdFromTheEndElemArrayClicked / 100 * firstFromTheEndElemArrayClicked);
+//         console.log(resultPercentage);
+//     }
+// });
 
 
 // parseInt(btnClicked)
