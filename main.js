@@ -274,42 +274,44 @@ btnAc.addEventListener('click', function(){
 let percentageCountingArray;
 
 btnPercentage.addEventListener('click', function(){
-    percentageCountingArray = arrayClickedString.split(' ');
+    if (arrayClicked.length != 0) {
+        percentageCountingArray = arrayClickedString.split(' ');
 
-    let firstFromTheEndElemPercentageCountingArray = 1 * (percentageCountingArray[percentageCountingArray.length - 1]);
-    let secondFromTheEndElemPercentageCountingArray = percentageCountingArray[percentageCountingArray.length - 2];
-    let thirdFromTheEndElemPercentageCountingArray = 1 * (percentageCountingArray[percentageCountingArray.length - 3]);
+        let firstFromTheEndElemPercentageCountingArray = 1 * (percentageCountingArray[percentageCountingArray.length - 1]);
+        let secondFromTheEndElemPercentageCountingArray = percentageCountingArray[percentageCountingArray.length - 2];
+        let thirdFromTheEndElemPercentageCountingArray = 1 * (percentageCountingArray[percentageCountingArray.length - 3]);
 
-    let pushingResult;
+        let pushingResult;
 
-    if (secondFromTheEndElemPercentageCountingArray == "-") {
-        pushingResult = thirdFromTheEndElemPercentageCountingArray - firstFromTheEndElemPercentageCountingArray / 100 * thirdFromTheEndElemPercentageCountingArray;
-    }  
-    else if (secondFromTheEndElemPercentageCountingArray == "+") {
-        pushingResult = firstFromTheEndElemPercentageCountingArray / 100 * thirdFromTheEndElemPercentageCountingArray + thirdFromTheEndElemPercentageCountingArray;
+        if (secondFromTheEndElemPercentageCountingArray == "-") {
+            pushingResult = thirdFromTheEndElemPercentageCountingArray - firstFromTheEndElemPercentageCountingArray / 100 * thirdFromTheEndElemPercentageCountingArray;
+        }  
+        else if (secondFromTheEndElemPercentageCountingArray == "+") {
+            pushingResult = firstFromTheEndElemPercentageCountingArray / 100 * thirdFromTheEndElemPercentageCountingArray + thirdFromTheEndElemPercentageCountingArray;
+        }
+        else if (secondFromTheEndElemPercentageCountingArray == "*") {
+            pushingResult = thirdFromTheEndElemPercentageCountingArray * firstFromTheEndElemPercentageCountingArray / 100;
+        }
+        else if(secondFromTheEndElemPercentageCountingArray == "/") {
+            pushingResult = thirdFromTheEndElemPercentageCountingArray / (firstFromTheEndElemPercentageCountingArray / 100);
+        }   
+
+        let lastElemArrayClicked = arrayClicked[arrayClicked.length - 1]; 
+
+        if (lastElemArrayClicked != " + " && lastElemArrayClicked != " - " && lastElemArrayClicked != " * "  && lastElemArrayClicked != " / ") {
+            percentageCountingArray.pop();
+            percentageCountingArray.pop();
+            percentageCountingArray.pop();
+
+            percentageCountingArray.push(pushingResult);
+
+            arrayClicked.length = 0;
+            arrayClicked.push.apply(arrayClicked, percentageCountingArray);
+
+            arrayClickedString = arrayClicked.join(' ');
+            visual.innerHTML = arrayClickedString;
+         }
     }
-    else if (secondFromTheEndElemPercentageCountingArray == "*") {
-        pushingResult = thirdFromTheEndElemPercentageCountingArray * firstFromTheEndElemPercentageCountingArray / 100;
-    }
-    else if(secondFromTheEndElemPercentageCountingArray == "/") {
-        pushingResult = thirdFromTheEndElemPercentageCountingArray / (firstFromTheEndElemPercentageCountingArray / 100);
-    }   
-    
-    let lastElemArrayClicked = arrayClicked[arrayClicked.length - 1]; 
-
-    if (lastElemArrayClicked != " + " && lastElemArrayClicked != " - " && lastElemArrayClicked != " * "  && lastElemArrayClicked != " / ") {
-        percentageCountingArray.pop();
-        percentageCountingArray.pop();
-        percentageCountingArray.pop();
-
-        percentageCountingArray.push(pushingResult);
-
-        arrayClicked.length = 0;
-        arrayClicked.push.apply(arrayClicked, percentageCountingArray);
-        
-        arrayClickedString = arrayClicked.join(' ');
-        visual.innerHTML = arrayClickedString;
-     }
     
 });
 
