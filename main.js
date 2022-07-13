@@ -186,6 +186,20 @@ btn.forEach(function(e) {
 
     
        
+        if ((btnClicked == " + " || btnClicked == " - " || btnClicked == " * "  || btnClicked == " / ") && (visual.innerHTML == '0') && (arrayClicked.length == 0)) {
+            // console.log(555);
+            arrayClicked.push("0");
+        }
+
+        if ((btnClicked == "0") && (visual.innerHTML == '0') && (arrayClicked[0] == "0")) {
+            // console.log(555);
+            arrayClicked.pop();
+        }
+
+        
+
+
+
         if ((btnClicked == " + " || btnClicked == " - " || btnClicked == " * "  || btnClicked == " / ") && (counting != undefined) && (arrayClickedString == 0)) {
             // console.log(555);
             arrayClicked.push(counting);
@@ -195,13 +209,19 @@ btn.forEach(function(e) {
         // }
         
         let lastElemArrayClicked = arrayClicked[arrayClicked.length - 1];
-        console.log(lastElemArrayClicked);
+        // console.log(lastElemArrayClicked);
 
         if ( (lastElemArrayClicked == " + " || lastElemArrayClicked == " - " || lastElemArrayClicked == " * "  || lastElemArrayClicked == " / ")&&(btnClicked == " + " || btnClicked == " - " || btnClicked == " * "  || btnClicked == " / ")) {
             arrayClicked.pop();
         }
         
         if ((btnClicked == ".")&&(lastElemArrayClicked == " + " || lastElemArrayClicked == " - " || lastElemArrayClicked == " * "  || lastElemArrayClicked == " / ")) {
+            // arrayClicked.pop();
+            arrayClicked.push("0");
+            // arrayClicked.push(".")
+        }
+
+        if ((btnClicked == ".")&&(visual.innerHTML == "0") && (arrayClicked.length == 0)) {
             // arrayClicked.pop();
             arrayClicked.push("0");
             // arrayClicked.push(".")
@@ -245,22 +265,47 @@ btnAc.addEventListener('click', function(){
     counting = undefined;
 });
 
-// btnPercentage.addEventListener('click', function(){
-//     let firstFromTheEndElemArrayClicked = parseInt(arrayClicked[arrayClicked.length - 1]);
-//     let secondFromTheEndElemArrayClicked = parseInt(arrayClicked[arrayClicked.length - 2]);
-//     let thirdFromTheEndElemArrayClicked = parseInt(arrayClicked[arrayClicked.length - 3]);
-//     console.log(firstFromTheEndElemArrayClicked);
-//     // console.log(secondFromTheEndElemArrayClicked);
-//     // console.log(thirdFromTheEndElemArrayClicked);
+let percentageCountingArray;
 
+btnPercentage.addEventListener('click', function(){
+    percentageCountingArray = arrayClickedString.split(' ');
 
-//     let resultPercentage;
-//     if (secondFromTheEndElemArrayClicked = " - ") {
-//         console.log(222);
-//         resultPercentage = eval(thirdFromTheEndElemArrayClicked / 100 * firstFromTheEndElemArrayClicked);
-//         console.log(resultPercentage);
-//     }
-// });
+    let firstFromTheEndElemPercentageCountingArray = 1 * (percentageCountingArray[percentageCountingArray.length - 1]);
+    let secondFromTheEndElemPercentageCountingArray = percentageCountingArray[percentageCountingArray.length - 2];
+    let thirdFromTheEndElemPercentageCountingArray = 1 * (percentageCountingArray[percentageCountingArray.length - 3]);
+
+    let pushingResult;
+
+    if (secondFromTheEndElemPercentageCountingArray == "-") {
+        pushingResult = thirdFromTheEndElemPercentageCountingArray - firstFromTheEndElemPercentageCountingArray / 100 * thirdFromTheEndElemPercentageCountingArray;
+    }  
+    else if (secondFromTheEndElemPercentageCountingArray == "+") {
+        pushingResult = firstFromTheEndElemPercentageCountingArray / 100 * thirdFromTheEndElemPercentageCountingArray + thirdFromTheEndElemPercentageCountingArray;
+    }
+    else if (secondFromTheEndElemPercentageCountingArray == "*") {
+        pushingResult = thirdFromTheEndElemPercentageCountingArray * firstFromTheEndElemPercentageCountingArray / 100;
+    }
+    else if(secondFromTheEndElemPercentageCountingArray == "/") {
+        pushingResult = thirdFromTheEndElemPercentageCountingArray / (firstFromTheEndElemPercentageCountingArray / 100);
+    }   
+    
+    let lastElemArrayClicked = arrayClicked[arrayClicked.length - 1]; 
+
+    if (lastElemArrayClicked != " + " && lastElemArrayClicked != " - " && lastElemArrayClicked != " * "  && lastElemArrayClicked != " / ") {
+        percentageCountingArray.pop();
+        percentageCountingArray.pop();
+        percentageCountingArray.pop();
+
+        percentageCountingArray.push(pushingResult);
+
+        arrayClicked.length = 0;
+        arrayClicked.push.apply(arrayClicked, percentageCountingArray);
+        
+        arrayClickedString = arrayClicked.join(' ');
+        visual.innerHTML = arrayClickedString;
+     }
+    
+});
 
 
 // parseInt(btnClicked)
