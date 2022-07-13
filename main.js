@@ -221,6 +221,12 @@ btn.forEach(function(e) {
             // arrayClicked.push(".")
         }
 
+        if ((lastElemArrayClicked == ".")&&(btnClicked == " + " || btnClicked == " - " || btnClicked == " * "  || btnClicked == " / ")) {
+            arrayClicked.pop();
+            // arrayClicked.push("0");
+            // arrayClicked.push(".")
+        }
+
         if ((btnClicked == ".")&&(visual.innerHTML == "0") && (arrayClicked.length == 0)) {
             // arrayClicked.pop();
             arrayClicked.push("0");
