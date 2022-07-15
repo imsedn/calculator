@@ -182,71 +182,53 @@ let counting;
 btn.forEach(function(e) {
     e.addEventListener( "click" , function() {
         let btnClicked = e.innerHTML;
-        // console.log(btnClicked);
+        let lastElemArrayClicked = arrayClicked[arrayClicked.length - 1];
 
-    
-       
         if ((btnClicked == " + " || btnClicked == " - " || btnClicked == " * "  || btnClicked == " / ") && (visual.innerHTML == '0') && (arrayClicked.length == 0)) {
-            // console.log(555);
             arrayClicked.push("0");
         }
 
         if ((btnClicked == "0") && (visual.innerHTML == '0') && (arrayClicked[0] == "0")) {
-            // console.log(555);
             arrayClicked.pop();
         }
 
-        
-
-
-
         if ((btnClicked == " + " || btnClicked == " - " || btnClicked == " * "  || btnClicked == " / ") && (counting != undefined) && (arrayClickedString == 0)) {
-            // console.log(555);
             arrayClicked.push(counting);
         }
-        // else if ((btnClicked != " + " || btnClicked != " - " || btnClicked != " * "  || btnClicked != " / ") && (counting != undefined) && (arrayClickedString == 0)) {
-        //     // console.log(777);
-        // }
-        
-        let lastElemArrayClicked = arrayClicked[arrayClicked.length - 1];
-        // console.log(lastElemArrayClicked);
 
         if ( (lastElemArrayClicked == " + " || lastElemArrayClicked == " - " || lastElemArrayClicked == " * "  || lastElemArrayClicked == " / ")&&(btnClicked == " + " || btnClicked == " - " || btnClicked == " * "  || btnClicked == " / ")) {
             arrayClicked.pop();
         }
-        
+
         if ((btnClicked == ".")&&(lastElemArrayClicked == " + " || lastElemArrayClicked == " - " || lastElemArrayClicked == " * "  || lastElemArrayClicked == " / ")) {
-            // arrayClicked.pop();
             arrayClicked.push("0");
-            // arrayClicked.push(".")
         }
 
         if ((lastElemArrayClicked == ".")&&(btnClicked == " + " || btnClicked == " - " || btnClicked == " * "  || btnClicked == " / ")) {
             arrayClicked.pop();
-            // arrayClicked.push("0");
-            // arrayClicked.push(".")
         }
 
         if ((btnClicked == ".")&&(visual.innerHTML == "0") && (arrayClicked.length == 0)) {
-            // arrayClicked.pop();
             arrayClicked.push("0");
-            // arrayClicked.push(".")
         }
 
         if ((btnClicked == ".")&&(lastElemArrayClicked == ".")) {
             arrayClicked.pop();
         }
 
+        //*работает, нужно найти куда пропадает минус */
+
+        // if ((typeof arrayClicked[0] == "number")&&(btnClicked != " + " || btnClicked != " - " || btnClicked != " * " || btnClicked != " / ")) {
+        //     arrayClicked.pop();
+        // }
+
+
         arrayClicked.push(btnClicked);
         arrayClickedString = arrayClicked.join('');
         visual.innerHTML = arrayClickedString;
-        
     });
 })
 
-
-// ((btnClicked == "0"||"1"||"2"||"3"||"4"||"5"||"6"||"7"||"8"||"9"))
-// && (counting != undefined) && (arrayClickedString == undefined)
 
 btnResult.addEventListener('click', function(){
     if (arrayClicked.length != 0 && arrayClickedString != 0) {
@@ -255,13 +237,6 @@ btnResult.addEventListener('click', function(){
         arrayClicked.length = 0;
         arrayClickedString = 0;
     }
-   
-    // arrayClicked.push(counting);
-    // arrayClickedString = counting;
-    // function remove() {
-    //     arrayClicked.length = 0;
-    // }
-    // setTimeout(remove, 100);
 });
 
 btnAc.addEventListener('click', function(){
@@ -271,10 +246,11 @@ btnAc.addEventListener('click', function(){
     counting = undefined;
 });
 
-let percentageCountingArray;
+let percentageCountingArray = [];
 
 btnPercentage.addEventListener('click', function(){
     if (arrayClicked.length != 0) {
+        
         percentageCountingArray = arrayClickedString.split(' ');
 
         let firstFromTheEndElemPercentageCountingArray = 1 * (percentageCountingArray[percentageCountingArray.length - 1]);
@@ -299,73 +275,72 @@ btnPercentage.addEventListener('click', function(){
         let lastElemArrayClicked = arrayClicked[arrayClicked.length - 1]; 
 
         if (lastElemArrayClicked != " + " && lastElemArrayClicked != " - " && lastElemArrayClicked != " * "  && lastElemArrayClicked != " / ") {
+
             percentageCountingArray.pop();
             percentageCountingArray.pop();
             percentageCountingArray.pop();
 
             percentageCountingArray.push(pushingResult);
 
+
+            //не работает//
+
+            // percentageCountingArray.forEach(function(e) {
+            //   if (percentageCountingArray[e] == "+") {
+            //     percentageCountingArray[e] = " + ";
+            //     }
+            // });
+
+
+            for (let i = 0; i < percentageCountingArray.length; i++) { 
+                if (percentageCountingArray[i] == "+") {
+                        percentageCountingArray[i] = " + ";
+                }
+                if (percentageCountingArray[i] == "-") {
+                        percentageCountingArray[i] = " - ";
+                }
+                if (percentageCountingArray[i] == "*") {
+                        percentageCountingArray[i] = " * ";
+                }
+                if (percentageCountingArray[i] == "/") {
+                        percentageCountingArray[i] = " / ";
+                }
+            }
+
+
+
             arrayClicked.length = 0;
+            
             arrayClicked.push.apply(arrayClicked, percentageCountingArray);
 
-            arrayClickedString = arrayClicked.join(' ');
-            visual.innerHTML = arrayClickedString;
+            // arrayClickedString = arrayClicked.join(' ');
+            visual.innerHTML = arrayClicked.join(' ');
+            // visual.innerHTML = arrayClickedString;
+            // arrayClickedString = 0;
          }
     }
     
 });
 
 
-// parseInt(btnClicked)
-// (parseInt(btnClicked) == 0||1||2||3||4||5||6||7||8||9) 
-
-// if (strincSplitedArray[e] != "+") {
-//     
-// }
 
 
+// let arr = [];
 
-    // let strincSplitedArray = arrayClickedStrinc.split(' ');
-    // console.log(strincSplitedArray);
+// let a = 1;
+// let b = 2;
+// let c = 3;
 
+// arr.push(a);
+// arr.push(b);
+// arr.push(c);
 
-//    strincSplitedArray.forEach(function(e) {
-//         if (parseInt(strincSplitedArray[e]) == NaN) {
-            
-//         }
-//         else {
-//             let FFF = parseInt(strincSplitedArray[e]);
-//             console.log(FFF);
-//         }
+// console.log(arr);
 
-//         var result = strincSplitedArray.reduce(function(sum, current) {
-//             return sum + current;
-//           });
-//         // console.log(result);
-//     })
+// arr.forEach(function(e) {
+//     if (arr[e] == 2) {
+//         arr[e] = 7;
+//     }
+// })
 
-
-// let tt = + ;
-// console.log(typeof tt);
-
-
-
-
-// let res = clickedArray.join('');
-// console.log(clickedArray);
-
-
-
-
-
-
-// btns.forEach(function(btn) {
-//     // Вешаем событие клик
-//     btn.addEventListener('click', function(e) {
-//       console.log('Button clicked' + e.target.classList);
-//     })
-//   })
-
-// a.forEach(function(entry) {
-//     console.log(entry);
-// });
+// console.log(arr);
