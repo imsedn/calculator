@@ -21,7 +21,7 @@ btn.forEach(function(e) {
             arrayClicked.push("0");
         }
 
-        else if ((btnClicked == "0") && (visual.innerHTML == '0') && (arrayClicked[0] == "0")) {
+        else if (visual.innerHTML == "0" && arrayClicked[0] == "0") {
             arrayClicked.pop();
         }
 
@@ -88,10 +88,13 @@ btnResult.addEventListener('click', function(){
 
 
 btnPlusMinus.addEventListener('click', function(){
-    if (arrayClicked.length == 0 && visual.innerHTML != "") {
+
+    if (arrayClicked.length == 0 && visual.innerHTML != "0" ) {
         arrayClicked.push(visual.innerHTML);
         arrayClickedString = arrayClicked.join('');
         visual.innerHTML = arrayClickedString;
+    } else if (arrayClicked.length == 0 && visual.innerHTML == "0" ) {
+        return;
     }
 
     let arrayChangeSign = arrayClickedString.split(' ');
@@ -158,10 +161,13 @@ btnAc.addEventListener('click', function(){
 
 
 btnPercentage.addEventListener('click', function(){
-    if (arrayClicked.length != 0) {
-
-        let percentageCountingArray = [];
+    let percentageCountingArray = [];
+    if (visual.innerHTML != "0") {
         percentageCountingArray = arrayClickedString.split(' ');
+    }
+
+    if (arrayClicked.length != 0 && percentageCountingArray.length != 1) {
+
 
         let firstFromTheEndElemPercentageCountingArray = 1 * (percentageCountingArray[percentageCountingArray.length - 1]);
         let secondFromTheEndElemPercentageCountingArray = percentageCountingArray[percentageCountingArray.length - 2];
@@ -211,10 +217,10 @@ btnPercentage.addEventListener('click', function(){
             
             arrayClicked.push.apply(arrayClicked, percentageCountingArray);
 
-            // arrayClickedString = arrayClicked.join(' ');
-            visual.innerHTML = arrayClicked.join(' ');
-            // visual.innerHTML = arrayClickedString;
-            // arrayClickedString = 0;
+            arrayClickedString = arrayClicked.join(' ');
+
+            visual.innerHTML = arrayClickedString;
+            
          }
     }
     
