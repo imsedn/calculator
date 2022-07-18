@@ -3,21 +3,18 @@ let btnResult = document.querySelector(".btn-result");
 let btnPercentage = document.querySelector(".btn-percentage");
 let visual = document.querySelector(".visual");
 let btnAc = document.querySelector(".btn-ac");
+let btnPlusMinus = document.querySelector(".btn-plus-minus");
 let arrayClicked = [];
 let arrayClickedString;
 let counting;
-let arrCheckingDot = [];
 
 btn.forEach(function(e) {
     e.addEventListener( "click" , function() {
+
+        btnAc.innerHTML = "C"
+
         let btnClicked = e.innerHTML;
         let lastElemArrayClicked = arrayClicked[arrayClicked.length - 1];
-
-
-
-
-
-
 
 
         if ((btnClicked == " + " || btnClicked == " - " || btnClicked == " * "  || btnClicked == " / ") && (visual.innerHTML == '0') && (arrayClicked.length == 0)) {
@@ -58,23 +55,22 @@ btn.forEach(function(e) {
         
         arrayClicked.push(btnClicked);
         arrayClickedString = arrayClicked.join('');
-        visual.innerHTML = arrayClickedString;
 
-
-        arrCheckingDot = arrayClickedString.split(' ');
+        let arrayDotCheck = arrayClickedString.split(' ');
         
-        arrCheckingDot.forEach(function(el){
+        arrayDotCheck.forEach(function(el){
             let indexOfDot = el.indexOf(".") + 1;
-            console.log(indexOfDot);
 
             let ifTrue = el.includes(".", indexOfDot)
 
             if (ifTrue == true && btnClicked == "."){
                 arrayClicked.pop();
                 arrayClickedString = arrayClicked.join('');
-                visual.innerHTML = arrayClickedString;
             }
-       })
+       });
+
+       visual.innerHTML = arrayClickedString;
+
     });
 })
 
@@ -85,14 +81,78 @@ btnResult.addEventListener('click', function(){
         visual.innerHTML = counting;
         arrayClicked.length = 0;
         arrayClickedString = 0;
+        btnAc.innerHTML = "AC";
     }
 });
 
+
+
+btnPlusMinus.addEventListener('click', function(){
+    if (arrayClicked.length == 0 && visual.innerHTML != "") {
+        arrayClicked.push(visual.innerHTML);
+        arrayClickedString = arrayClicked.join('');
+        visual.innerHTML = arrayClickedString;
+    }
+
+    let arrayChangeSign = arrayClickedString.split(' ');
+
+    for (i = arrayClicked.length - 1; i >= 0; --i) {
+         if (arrayClicked[i] == " + ")  {
+            arrayClicked[i] = " - ";
+            arrayClickedString = arrayClicked.join('');
+            visual.innerHTML = arrayClickedString;
+            break;
+        } else if (arrayClicked[i] == " - ") {
+            arrayClicked[i] = " + ";
+            arrayClickedString = arrayClicked.join('');
+            visual.innerHTML = arrayClickedString;
+            break;
+        } else if (arrayChangeSign.length == 1 && arrayChangeSign[0] * 1 > 0) {
+            arrayClicked.unshift(" - ");
+            arrayClickedString = arrayClicked.join('');
+            visual.innerHTML = arrayClickedString;
+            break;
+        } else if (arrayChangeSign.length == 1 && arrayChangeSign[0] * 1 < 0) {
+            arrayClicked[0] = Math.abs(arrayChangeSign[0])
+            arrayClickedString = arrayClicked.join('');
+            visual.innerHTML = arrayClickedString;
+            break;
+        }
+    }
+
+
+    // do {
+    //     alert( i );
+    //     i++;
+    //   } while (i < 3);
+
+    // if (arrayClicked.length != 0 && prelastestElemArrayClicked == "+") {
+    //     prelastestElemArrayClicked == "-";
+
+        
+    // }
+    
+});
+
 btnAc.addEventListener('click', function(){
-    visual.innerHTML = '0';
-    arrayClicked.length = 0;
-    arrayClickedString = undefined;
-    counting = undefined;
+    if (btnAc.innerHTML == "AC") {
+        visual.innerHTML = '0';
+        arrayClicked.length = 0;
+        arrayClickedString = undefined;
+        counting = undefined;
+    } else if (btnAc.innerHTML == "C" && arrayClicked.length != 1) {
+        arrayClicked.pop();
+        arrayClickedString = arrayClicked.join('');
+        visual.innerHTML = arrayClickedString;
+    } else if (btnAc.innerHTML == "C" && arrayClicked.length == 1) {
+        arrayClicked.pop();
+        arrayClickedString = arrayClicked.join('');
+        visual.innerHTML = "0";
+    }
+    //  else if (arrayClicked.length == 0) {
+    //     btnAc.innerHTML == "AC";
+    // }
+
 });
 
 
