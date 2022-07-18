@@ -117,7 +117,7 @@ btnPlusMinus.addEventListener('click', function(){
             arrayClickedString = arrayClicked.join('');
             visual.innerHTML = arrayClickedString;
             break;
-        }
+        } 
     }
 
 
@@ -135,7 +135,11 @@ btnPlusMinus.addEventListener('click', function(){
 });
 
 btnAc.addEventListener('click', function(){
-    if (btnAc.innerHTML == "AC") {
+
+    if (visual.innerHTML == "0" && arrayClicked.length == 0) {
+        btnAc.innerHTML = "AC";
+        visual.innerHTML = "0";
+    } else if (btnAc.innerHTML == "AC") {
         visual.innerHTML = '0';
         arrayClicked.length = 0;
         arrayClickedString = undefined;
@@ -149,10 +153,6 @@ btnAc.addEventListener('click', function(){
         arrayClickedString = arrayClicked.join('');
         visual.innerHTML = "0";
     }
-    //  else if (arrayClicked.length == 0) {
-    //     btnAc.innerHTML == "AC";
-    // }
-
 });
 
 
