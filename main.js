@@ -213,3 +213,23 @@ btnPercentage.addEventListener('click', function(){
     }
     
 });
+
+// Решение собственной функции масштабирования в Safari: предотвращение двойного щелчка для увеличения
+var lastTime = 0;
+document.addEventListener('touchstart', function(event) {
+    if (event.touches.length > 1) {
+        event.preventDefault();
+    }
+});
+document.addEventListener('touchend', function(event) {
+    var nowTime = (new Date()).getTime();
+    if (nowTime - lastTime <= 300) {
+        event.preventDefault();
+    }
+    lastTime = nowTime;
+}, false);
+
+ // Решение собственной функции масштабирования Safari: предотвращение масштабирования двумя пальцами
+document.addEventListener('gesturestart', function(event) {
+    event.preventDefault();
+});
