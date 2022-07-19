@@ -215,7 +215,7 @@ btnPercentage.addEventListener('click', function(){
 });
 
 
-document.getElementsByTagName("body").addEventListener("touchstart", tapHandler);
+btn.addEventListener("touchstart", tapHandler);
 
 var tapedTwice = false;
 
