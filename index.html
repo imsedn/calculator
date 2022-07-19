@@ -4,30 +4,43 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="#" />
     <title>Calculator</title>
+    <link rel="shortcut icon" href="#" />
+    <link href="style.css" rel="stylesheet" />
 </head>
 <body>
-    <button class="btn">1</button>
-    <button class="btn">2</button>
-    <button class="btn">3</button>
-    <button class="btn">4</button>
-    <button class="btn">5</button>
-    <button class="btn">6</button>
-    <button class="btn">7</button>
-    <button class="btn">8</button>
-    <button class="btn">9</button>
-    <button class="btn">0</button>
-    <button class="btn"> + </button>
-    <button class="btn"> - </button>
-    <button class="btn"> * </button>
-    <button class="btn"> / </button>
-    <button class="btn">.</button>
-    <button class="btn-plus-minus">+/-</button>
-    <button class="btn-percentage">%</button>
-    <button class="btn-result">=</button>
-    <button class="btn-ac">AC</button>
-    <div class="visual">0</div>
+    <div class="calculator">
+        <div class="visual">0</div>
+        <div class="first-line item">
+            <button class="btn-ac item-silver">AC</button>
+            <button class="btn-plus-minus item-silver">+/-</button>
+            <button class="btn-percentage item-silver">%</button>
+            <button class="btn item-orange"> / </button>
+        </div>
+        <div class="second-line item">
+            <button class="btn item-grey">7</button>
+            <button class="btn item-grey">8</button>
+            <button class="btn item-grey">9</button>
+            <button class="btn item-orange"> * </button>
+        </div>
+        <div class="third-line item">
+            <button class="btn item-grey">4</button>
+            <button class="btn item-grey">5</button>
+            <button class="btn item-grey">6</button>
+            <button class="btn item-orange"> - </button>
+        </div>
+        <div class="fourth-line item">
+            <button class="btn item-grey">1</button>
+            <button class="btn item-grey">2</button>
+            <button class="btn item-grey">3</button>
+            <button class="btn item-orange"> + </button>
+        </div>
+        <div class="fifth-line item">
+            <button class="btn btn-zero item-grey">0</button>
+            <button class="btn item-grey">.</button>
+            <button class="btn-result item-orange">=</button>
+        </div>
+    </div>
     <script src="main.js"></script>
 </body>
 </html>

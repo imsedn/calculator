@@ -11,7 +11,7 @@ let counting;
 btn.forEach(function(e) {
     e.addEventListener( "click" , function() {
 
-        btnAc.innerHTML = "C"
+        btnAc.innerHTML = "C";
 
         let btnClicked = e.innerHTML;
         let lastElemArrayClicked = arrayClicked[arrayClicked.length - 1];
@@ -61,7 +61,7 @@ btn.forEach(function(e) {
         arrayDotCheck.forEach(function(el){
             let indexOfDot = el.indexOf(".") + 1;
 
-            let ifTrue = el.includes(".", indexOfDot)
+            let ifTrue = el.includes(".", indexOfDot);
 
             if (ifTrue == true && btnClicked == "."){
                 arrayClicked.pop();
@@ -122,18 +122,6 @@ btnPlusMinus.addEventListener('click', function(){
             break;
         } 
     }
-
-
-    // do {
-    //     alert( i );
-    //     i++;
-    //   } while (i < 3);
-
-    // if (arrayClicked.length != 0 && prelastestElemArrayClicked == "+") {
-    //     prelastestElemArrayClicked == "-";
-
-        
-    // }
     
 });
 
