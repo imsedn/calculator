@@ -20,6 +20,7 @@ input[type="number"] {
   
 button {
     outline: none !important;
+    touch-action: manipulation;
 }
   
 ul,
