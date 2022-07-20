@@ -12,6 +12,7 @@ body {
     box-sizing: border-box;
     background-image: none;
     margin-bottom: 0;
+    max-height: 100vh;
 }
   
 input[type="number"] {
