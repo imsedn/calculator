@@ -235,15 +235,15 @@ document.addEventListener('gesturestart', function(event) {
 });
 
 
-let wrap = document.querySelector(".wrap");
-let screenHeight = window.screen.height;
+// let wrap = document.querySelector(".wrap");
+// let screenHeight = window.screen.height;
 
-console.log(screenHeight + "px Высота экрана");
+// console.log(screenHeight + "px Высота экрана");
 
-let wrapHeight = wrap.offsetHeight;
+// let wrapHeight = wrap.offsetHeight;
 
-console.log(wrapHeight + "px Высота wrap");
+// console.log(wrapHeight + "px Высота wrap");
 
-visual.style.height = screenHeight - wrapHeight + "px";
+// visual.style.height = screenHeight - wrapHeight + "px";
 
-console.log(visual.style.height + " Высота vusial");
+// console.log(visual.style.height + " Высота vusial");
