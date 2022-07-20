@@ -2,17 +2,18 @@
 html {
     margin: 0;
     padding: 0;
+    /* outline: 0; */
 }
 body {
     font-family: "Open Sans", sans-serif;
     overflow-x: hidden;
     margin: 0;
-    padding: 0; 
+    padding: 0 ; 
     background-color: #fafafa;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     background-image: none;
-    /* max-height: 100vh; */
+    /* outline: 0; */
 }
   
 input[type="number"] {
@@ -73,7 +74,6 @@ a:hover {
     width: calc((100vw - 48px) * 2);
     border-radius: 50px;
     text-align: left;
-    vertical-align: center;
     padding-left: 25px;
 }
 
@@ -83,7 +83,8 @@ a:hover {
     display: flex;
     -ms-flex-pack: distribute;
         justify-content: space-around;
-    margin: 12px;
+    /* margin: 12px; */
+    padding: 6px;
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
 }
@@ -103,7 +104,6 @@ a:hover {
 }
 
 .visual {
-    height: 395px;
     box-sizing: border-box;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -124,8 +124,8 @@ a:hover {
             
 }
 
-/* .wrap {
+.wrap {
     padding-bottom: 20px;
-} */
+}
 
 
