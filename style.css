@@ -48,6 +48,11 @@ a:hover {
     background-color: #000;
     padding-bottom: 30px;
     min-height: 100vh;
+    box-sizing: border-box;
+}
+
+.wrap {
+    padding-bottom: 30px;
 }
 
 .btn,
@@ -60,12 +65,14 @@ a:hover {
     text-decoration: none;
     font-size: 20px;
     /* padding: 30px; */
-    height: 65px;
-    width: 65px;
+    height: calc((100vw - 80px) / 4);
+    width: calc(100vw - 80px);
     border-radius: 50%;
+    margin: 0 7.5px;
 }
 .btn-zero {
-    width: 150px;
+    /* width: 500px; */
+    width: calc((100vw - 48px) * 2);
     border-radius: 50px;
     text-align: left;
     vertical-align: center;
@@ -75,7 +82,8 @@ a:hover {
 .item {
     display: flex;
     justify-content: space-around;
-    margin: 10px 0;
+    margin: 12px;
+    box-sizing: border-box;
 }
 
 .item-orange {
@@ -94,10 +102,11 @@ a:hover {
 
 .visual {
     display: flex;
-    height: 120px;
     justify-content: flex-end;
     align-items: flex-end;
     padding: 15px;
     font-size: 50px;
     color: #fafafa;
+    touch-action: manipulation;
+    box-sizing: border-box;
 }
