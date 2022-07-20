@@ -235,7 +235,7 @@ document.addEventListener('gesturestart', function(event) {
 });
 
 
-let wrap = document.querySelector(".wrap");
-let screenHeight = window.screen.height;
-let wrapHeight = wrap.offsetHeight;
-visual.style.height = screenHeight - wrapHeight + "px";
+// let wrap = document.querySelector(".wrap");
+// let screenHeight = window.screen.height;
+// let wrapHeight = wrap.offsetHeight;
+// visual.style.height = screenHeight - wrapHeight + "px";
