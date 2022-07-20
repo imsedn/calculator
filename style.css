@@ -83,7 +83,7 @@ a:hover {
     display: flex;
     -ms-flex-pack: distribute;
         justify-content: space-around;
-    margin: 12px;
+    padding: 12px;
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
 }
@@ -103,6 +103,7 @@ a:hover {
 }
 
 .visual {
+    box-sizing: border-box;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -119,4 +120,5 @@ a:hover {
         touch-action: manipulation;
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
+            
 }
