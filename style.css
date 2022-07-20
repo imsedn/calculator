@@ -49,7 +49,7 @@ a:hover {
 .calculator {
     /* position: relative; */
     background-color: #000;
-    padding-bottom: 20px;
+    /* padding-bottom: 20px; */
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
     /* height: 100vh; */
