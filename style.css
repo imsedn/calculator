@@ -1,10 +1,30 @@
+@font-face {
+    font-family: 'San Francisco Text Regular';
+    src: url('/fonts/SFUIText-Regular.eot');
+    src: url('/fonts/SFUIText-Regular.eot?#iefix') format('embedded-opentype'),
+    url('/fonts/SFUIText-Regular.woff') format('woff'),
+    url('/fonts/SFUIText-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'San Francisco Text Medium';
+    src: url('/fonts/SFUIText-Medium.eot');
+    src: url('/fonts/SFUIText-Medium.eot?#iefix') format('embedded-opentype'),
+    url('/fonts/SFUIText-Medium.woff') format('woff'),
+    url('/fonts/SFUIText-Medium.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 html {
     margin: 0;
     padding: 0;
     /* outline: 0; */
 }
 body {
-    font-family: "Open Sans", sans-serif;
+    font-family: 'San Francisco Text Medium';
     overflow-x: hidden;
     overflow-y: hidden;
     margin: 0;
@@ -50,7 +70,7 @@ a:hover {
 .calculator {
     /* position: relative; */
     background-color: #000;
-    /* padding-bottom: 20px; */
+    padding-bottom: 20px;
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
     /* height: 100vh; */
@@ -64,11 +84,12 @@ a:hover {
     border: none;
     text-align: center;
     text-decoration: none;
-    font-size: 20px;
+    font-size: 2rem;
     height: calc((100vw - 80px) / 4);
     width: calc((100vw - 80px) / 4);;
     border-radius: 50%;
     margin: 0 7.5px;
+    font-family: 'San Francisco Text Regular';
 }
 .btn-zero {
     width: calc((100vw - 50%) - 30px);
@@ -115,7 +136,7 @@ a:hover {
     -webkit-box-align: end;
         -ms-flex-align: end;
             align-items: flex-end;
-    /* padding: 15px; */
+    padding: calc(100vw - 95%);
     font-size: 50px;
     color: #fafafa;
     -ms-touch-action: manipulation;
