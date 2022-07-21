@@ -125,7 +125,7 @@ a:hover {
 }
 
 .visual {
-    max-height: calc(100vw - 70%) !important;
+    max-height: calc(100vh - 70%) !important;
     box-sizing: border-box;
     display: -webkit-box;
     display: -ms-flexbox;
