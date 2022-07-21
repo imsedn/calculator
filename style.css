@@ -71,7 +71,7 @@ a:hover {
     margin: 0 7.5px;
 }
 .btn-zero {
-    width: calc((100vw - 48px) * 2);
+    width: calc((100vw - 50%) - 30px);
     border-radius: 50px;
     text-align: left;
     padding-left: 25px;
