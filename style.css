@@ -29,7 +29,7 @@ body {
     overflow-y: hidden;
     margin: 0;
     padding: 0 ; 
-    background-color: #fafafa;
+    background-color: #000;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     background-image: none;
@@ -125,7 +125,7 @@ a:hover {
 }
 
 .visual {
-    max-height: 200px !important;
+    max-height: calc(100vw - 70%) !important;
     box-sizing: border-box;
     display: -webkit-box;
     display: -ms-flexbox;
