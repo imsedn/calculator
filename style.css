@@ -88,7 +88,7 @@ a:hover {
     -webkit-font-smoothing: antialiased;
     border: none;
     text-decoration: none;
-    font-size: 25px;
+    font-size: 35px;
     height: calc((100vw - 80px) / 4);
     width: calc((100vw - 80px) / 4);;
     border-radius: 50%;
@@ -149,8 +149,8 @@ a:hover {
             
 }
 
-/* .wrap {
+.wrap {
     padding-bottom: 20px;
-} */
+}
 
 
