@@ -35,6 +35,7 @@ body {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     background-image: none;
+    -webkit-font-smoothing: antialiased;
     /* outline: 0; */
 }
   
@@ -83,16 +84,17 @@ a:hover {
 .btn-percentage,
 .btn-result,
 .btn-ac {
-    font-family: 'San Francisco Text Medium', "Arial", sans-serif;
-    text-align: center;
     border: none;
     text-align: center;
     text-decoration: none;
-    font-size: 30px;
+    font-size: 25px;
     height: calc((100vw - 80px) / 4);
     width: calc((100vw - 80px) / 4);;
     border-radius: 50%;
     margin: 0 7.5px;
+    font-family: 'San Francisco Text Medium', "Arial", sans-serif;
+    text-align: center;
+    -webkit-font-smoothing: antialiased;
 }
 .btn-zero {
     width: calc((100vw - 50%) - 30px);
@@ -125,6 +127,8 @@ a:hover {
 .item-grey {
     background-color: #333;
     color: #F2F2F2;
+    -webkit-font-smoothing: antialiased;
+    text-align: center;
 }
 
 .visual {
