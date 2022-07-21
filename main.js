@@ -236,7 +236,7 @@ document.addEventListener('gesturestart', function(event) {
 
 
 let wrap = document.querySelector(".wrap");
-let screenHeight = window.screen.height;
+let screenHeight = document.documentElement.clientHeight;
 
 let wrapHeight = wrap.offsetHeight;
 
