@@ -17,15 +17,22 @@ btn.forEach(function(e) {
         let lastElemArrayClicked = arrayClicked[arrayClicked.length - 1];
 
 
-        if ((btnClicked == " + " || btnClicked == " - " || btnClicked == " * "  || btnClicked == " / ") && (visual.innerHTML == '0') && (arrayClicked.length == 0)) {
+        if ((btnClicked == " + " || btnClicked == " - " || btnClicked == " * "  || btnClicked == " / ") && (visual.innerHTML == '0') && (arrayClicked.length == 0 || arrayClicked[0] == "0")) {
             arrayClicked.push("0");
+            console.log(111);
         }
+
+        // if ((btnClicked == "0") ) {
+        //     arrayClicked.pop();
+        //     console.log(222);
+        // }
+
 
         else if (visual.innerHTML == "0" && arrayClicked[0] == "0") {
             arrayClicked.pop();
         }
 
-        else if ((btnClicked == " + " || btnClicked == " - " || btnClicked == " * "  || btnClicked == " / ") && (counting != undefined) && (arrayClickedString == 0)) {
+        else if ((btnClicked == " + " || btnClicked == " - " || btnClicked == " * "  || btnClicked == " / ") && (counting != undefined) && (arrayClickedString == 0) && arrayClicked.length == 0) {
             arrayClicked.push(counting);
         }
 
@@ -41,9 +48,18 @@ btn.forEach(function(e) {
             arrayClicked.pop();
         }
 
+
         else if ((btnClicked == ".")&&(visual.innerHTML == "0") && (arrayClicked.length == 0)) {
             arrayClicked.push("0");
         }
+
+
+        /*???*/
+        else if ((btnClicked == ".") && (arrayClicked.length == 0)) {
+            arrayClicked.push("0");
+        }
+
+
 
         else if ((btnClicked == ".")&&(lastElemArrayClicked == ".")) {
             arrayClicked.pop();
@@ -52,13 +68,29 @@ btn.forEach(function(e) {
         else if (typeof lastElemArrayClicked == "number" && btnClicked != " + " && btnClicked != " - " && btnClicked != " * " && btnClicked != " / ") {
             arrayClicked.length = 0;
         }
+
+
+
+
         
         arrayClicked.push(btnClicked);
         arrayClickedString = arrayClicked.join('');
 
         let arrayDotCheck = arrayClickedString.split(' ');
+
+        console.log(arrayDotCheck);
         
         arrayDotCheck.forEach(function(el){
+
+            // let stringLongerCheck = el.length;
+            
+
+            // удалить, не работает проверка на точку
+            if (el.length == 7) {
+                arrayClicked.pop();
+            }
+
+
             let indexOfDot = el.indexOf(".") + 1;
 
             let ifTrue = el.includes(".", indexOfDot);
@@ -214,22 +246,6 @@ btnPercentage.addEventListener('click', function(){
     
 });
 
-// // Решение собственной функции масштабирования в Safari: предотвращение двойного щелчка для увеличения
-// var lastTime = 0;
-// document.addEventListener('touchstart', function(event) {
-//     if (event.touches.length > 1) {
-//         event.preventDefault();
-//     }
-// });
-// document.addEventListener('touchend', function(event) {
-//     var nowTime = (new Date()).getTime();
-//     if (nowTime - lastTime <= 300) {
-//         event.preventDefault();
-//     }
-//     lastTime = nowTime;
-// }, false);
-
- // Решение собственной функции масштабирования Safari: предотвращение масштабирования двумя пальцами
 document.addEventListener('gesturestart', function(event) {
     event.preventDefault();
 });
