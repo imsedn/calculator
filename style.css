@@ -24,7 +24,8 @@ html {
     /* outline: 0; */
 }
 body {
-    font-family: 'San Francisco Text Medium', "Arial", sans-serif;
+    /* 'San Francisco Text Medium', */
+    font-family: "Arial", sans-serif;
     overflow-x: hidden;
     overflow-y: hidden;
     margin: 0;
@@ -89,15 +90,13 @@ a:hover {
     width: calc((100vw - 80px) / 4);;
     border-radius: 50%;
     margin: 0 7.5px;
-    font-family: 'San Francisco Text Regular', "Arial", sans-serif;
+    font-family: "Arial", sans-serif;
 }
 .btn-zero {
     width: calc((100vw - 50%) - 30px);
     border-radius: 50px;
     text-align: left;
     padding-left: 25px;
-    text-align: center;
-    align-items: center;
 }
 
 .item {
@@ -127,7 +126,7 @@ a:hover {
 }
 
 .visual {
-    max-height: calc(100vh - 70%) !important;
+    max-height: calc(100vh - 85%) !important;
     box-sizing: border-box;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -138,7 +137,7 @@ a:hover {
     -webkit-box-align: end;
         -ms-flex-align: end;
             align-items: flex-end;
-    padding: calc(100vw - 90%);
+    padding: calc(100vw - 93%);
     font-size: 50px;
     color: #fafafa;
     -ms-touch-action: manipulation;
