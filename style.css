@@ -1,19 +1,19 @@
 @font-face {
     font-family: 'San Francisco Text Regular';
-    src: url('/fonts/SFUIText-Regular.eot');
-    src: url('/fonts/SFUIText-Regular.eot?#iefix') format('embedded-opentype'),
-    url('/fonts/SFUIText-Regular.woff') format('woff'),
-    url('/fonts/SFUIText-Regular.ttf') format('truetype');
+    src: url('fonts/SFUIText-Regular.eot');
+    src: url('fonts/SFUIText-Regular.eot?#iefix') format('embedded-opentype'),
+    url('fonts/SFUIText-Regular.woff') format('woff'),
+    url('fonts/SFUIText-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'San Francisco Text Medium';
-    src: url('/fonts/SFUIText-Medium.eot');
-    src: url('/fonts/SFUIText-Medium.eot?#iefix') format('embedded-opentype'),
-    url('/fonts/SFUIText-Medium.woff') format('woff'),
-    url('/fonts/SFUIText-Medium.ttf') format('truetype');
+    src: url('fonts/SFUIText-Medium.eot');
+    src: url('fonts/SFUIText-Medium.eot?#iefix') format('embedded-opentype'),
+    url('fonts/SFUIText-Medium.woff') format('woff'),
+    url('fonts/SFUIText-Medium.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -136,7 +136,7 @@ a:hover {
     -webkit-box-align: end;
         -ms-flex-align: end;
             align-items: flex-end;
-    padding: calc(100vw - 95%);
+    padding: calc(100vw - 90%);
     font-size: 50px;
     color: #fafafa;
     -ms-touch-action: manipulation;
