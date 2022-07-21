@@ -24,7 +24,7 @@ html {
     /* outline: 0; */
 }
 body {
-    font-family: 'San Francisco Text Medium';
+    font-family: 'San Francisco Text Medium', "Arial", sans-serif;
     overflow-x: hidden;
     overflow-y: hidden;
     margin: 0;
@@ -89,7 +89,7 @@ a:hover {
     width: calc((100vw - 80px) / 4);;
     border-radius: 50%;
     margin: 0 7.5px;
-    font-family: 'San Francisco Text Regular';
+    font-family: 'San Francisco Text Regular', "Arial", sans-serif;
 }
 .btn-zero {
     width: calc((100vw - 50%) - 30px);
