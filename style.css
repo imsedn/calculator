@@ -26,7 +26,7 @@ html {
 }
 body {
     /* , */
-    font-family: 'San Francisco Text Medium', "Arial", sans-serif;
+    font-family: 'San Francisco Text Regular';
     overflow-x: hidden;
     overflow-y: hidden;
     margin: 0;
@@ -84,7 +84,7 @@ a:hover {
 .btn-percentage,
 .btn-result,
 .btn-ac {
-    font-family: 'San Francisco Text Medium', "Arial", sans-serif;
+    font-family: 'San Francisco Text Regular';
     -webkit-font-smoothing: antialiased;
     border: none;
     text-decoration: none;
@@ -128,6 +128,7 @@ a:hover {
 }
 
 .visual {
+    font-family: 'San Francisco Text Regular';
     box-sizing: border-box;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -139,7 +140,7 @@ a:hover {
         -ms-flex-align: end;
             align-items: flex-end;
     padding: calc(100vw - 93%);
-    font-size: 50px;
+    font-size: 75px;
     color: #fafafa;
     -ms-touch-action: manipulation;
         touch-action: manipulation;
