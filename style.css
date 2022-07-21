@@ -18,6 +18,16 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'San Francisco Display Thin';
+    src: url('fonts/SFUIDisplay-Thin.eot');
+    src: url('fonts/SFUIDisplay-Thin.eot?#iefix') format('embedded-opentype'),
+    url('fonts/SFUIDisplay-Thin.woff') format('woff'),
+    url('fonts/SFUIDisplay-Thin.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 html {
     margin: 0;
     padding: 0;
@@ -131,7 +141,7 @@ a:hover {
 }
 
 .visual {
-    font-family: 'San Francisco Text Regular';
+    font-family: 'San Francisco Display Thin';
     box-sizing: border-box;
     display: -webkit-box;
     display: -ms-flexbox;
