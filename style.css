@@ -88,18 +88,21 @@ a:hover {
     -webkit-font-smoothing: antialiased;
     border: none;
     text-decoration: none;
-    font-size: 35px;
+    font-size: 30px;
     height: calc((100vw - 80px) / 4);
     width: calc((100vw - 80px) / 4);;
     border-radius: 50%;
     margin: 0 7.5px;
-    
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .btn-zero {
     width: calc((100vw - 50%) - 30px);
     border-radius: 50px;
-    text-align: left;
     padding-left: 25px;
+    align-items: left;
+    justify-content: left;
 }
 
 .item {
