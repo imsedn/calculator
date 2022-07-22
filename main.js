@@ -7,6 +7,7 @@ let btnPlusMinus = document.querySelector(".btn-plus-minus");
 let arrayClicked = [];
 let arrayClickedString;
 let counting;
+let checkLong = true;
 
 btn.forEach(function(e) {
     e.addEventListener( "click" , function() {
@@ -17,16 +18,14 @@ btn.forEach(function(e) {
         let lastElemArrayClicked = arrayClicked[arrayClicked.length - 1];
 
 
+        
+
+
+
+
         if ((btnClicked == " + " || btnClicked == " - " || btnClicked == " * "  || btnClicked == " / ") && (visual.innerHTML == '0') && (arrayClicked.length == 0 || arrayClicked[0] == "0")) {
             arrayClicked.push("0");
-            console.log(111);
         }
-
-        // if ((btnClicked == "0") ) {
-        //     arrayClicked.pop();
-        //     console.log(222);
-        // }
-
 
         else if (visual.innerHTML == "0" && arrayClicked[0] == "0") {
             arrayClicked.pop();
@@ -70,27 +69,36 @@ btn.forEach(function(e) {
         }
 
 
+        else if (btnClicked == " + " || btnClicked == " - " || btnClicked == " * "  || btnClicked == " / " && checkLong == false) {
+            checkLong = true;
+        }
 
 
-        
-        arrayClicked.push(btnClicked);
+
+
+
+        if (checkLong == true) {
+            arrayClicked.push(btnClicked);
+        }
+
         arrayClickedString = arrayClicked.join('');
 
         let arrayDotCheck = arrayClickedString.split(' ');
 
-        console.log(arrayDotCheck);
+         for (i = arrayDotCheck.length - 1; i >= 0; --i) {
+            let last = arrayDotCheck[arrayDotCheck.length - 1];
+            if (last.length == 7) {
+                checkLong = false;
+            }
+         }
+
+
+
+
+     
+
         
         arrayDotCheck.forEach(function(el){
-
-            // let stringLongerCheck = el.length;
-            
-
-            // удалить, не работает проверка на точку
-            if (el.length == 7) {
-                arrayClicked.pop();
-            }
-
-
             let indexOfDot = el.indexOf(".") + 1;
 
             let ifTrue = el.includes(".", indexOfDot);
@@ -114,6 +122,7 @@ btnResult.addEventListener('click', function(){
         arrayClicked.length = 0;
         arrayClickedString = 0;
         btnAc.innerHTML = "AC";
+        checkLong = true;
     }
 });
 
