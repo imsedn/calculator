@@ -17,14 +17,11 @@ btn.forEach(function(e) {
         let btnClicked = e.innerHTML;
         let lastElemArrayClicked = arrayClicked[arrayClicked.length - 1];
 
-
-        
-
-
-
-
         if ((btnClicked == " + " || btnClicked == " - " || btnClicked == " * "  || btnClicked == " / ") && (visual.innerHTML == '0') && (arrayClicked.length == 0 || arrayClicked[0] == "0")) {
             arrayClicked.push("0");
+        }
+        else if ((btnClicked == " + " || btnClicked == " - " || btnClicked == " * "  || btnClicked == " / ") && (arrayClicked[0] == ".")) {
+            arrayClicked[0] = "0";
         }
 
         else if (visual.innerHTML == "0" && arrayClicked[0] == "0") {
@@ -52,13 +49,10 @@ btn.forEach(function(e) {
             arrayClicked.push("0");
         }
 
-
         /*???*/
         else if ((btnClicked == ".") && (arrayClicked.length == 0)) {
             arrayClicked.push("0");
         }
-
-
 
         else if ((btnClicked == ".")&&(lastElemArrayClicked == ".")) {
             arrayClicked.pop();
@@ -68,14 +62,9 @@ btn.forEach(function(e) {
             arrayClicked.length = 0;
         }
 
-
         else if (btnClicked == " + " || btnClicked == " - " || btnClicked == " * "  || btnClicked == " / " && checkLong == false) {
             checkLong = true;
         }
-
-
-
-
 
         if (checkLong == true) {
             arrayClicked.push(btnClicked);
@@ -91,12 +80,6 @@ btn.forEach(function(e) {
                 checkLong = false;
             }
          }
-
-
-
-
-     
-
         
         arrayDotCheck.forEach(function(el){
             let indexOfDot = el.indexOf(".") + 1;
