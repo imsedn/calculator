@@ -136,6 +136,7 @@ a:hover {
 }
 
 .item-grey {
+    font-size: 10vw;
     background-color: #333;
     color: #F2F2F2;
 }
