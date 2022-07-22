@@ -99,8 +99,8 @@ a:hover {
     border: none;
     text-decoration: none;
     font-size: 8vw;
-    height: calc((100vw - 60px) / 4);
-    width: calc((100vw - 60px) / 4);;
+    height: calc((100vw - 70px) / 4);
+    width: calc((100vw - 70px) / 4);;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -108,7 +108,7 @@ a:hover {
     outline: none !important;
 }
 .btn-zero {
-    width: calc((100vw - 50%) - 20px);
+    width: calc((100vw - 50%) - 25px);
     border-radius: 50px;
     padding-left: 25px;
     align-items: left;
