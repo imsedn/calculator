@@ -17,8 +17,9 @@ btn.forEach(function(e) {
         let btnClicked = e.innerHTML;
         let lastElemArrayClicked = arrayClicked[arrayClicked.length - 1];
 
+
         if ((btnClicked == " + " || btnClicked == " - " || btnClicked == " * "  || btnClicked == " / ") && (visual.innerHTML == '0') && (arrayClicked.length == 0 || arrayClicked[0] == "0")) {
-            arrayClicked.push("0");
+            arrayClicked[0] = "0"
         }
         else if ((btnClicked == " + " || btnClicked == " - " || btnClicked == " * "  || btnClicked == " / ") && (arrayClicked[0] == ".")) {
             arrayClicked[0] = "0";
@@ -174,8 +175,12 @@ btnAc.addEventListener('click', function(){
 
 btnPercentage.addEventListener('click', function(){
     let percentageCountingArray = [];
+  
     if (visual.innerHTML != "0") {
         percentageCountingArray = arrayClickedString.split(' ');
+    } 
+    else {
+        return;
     }
 
     if (arrayClicked.length != 0 && percentageCountingArray.length != 1) {
