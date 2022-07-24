@@ -111,7 +111,6 @@ a:hover {
     width: calc((100vw - 50%) - 25px);
     border-radius: 50px;
     padding-left: 25px;
-    align-items: left;
     justify-content: left;
 }
 

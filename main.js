@@ -25,7 +25,7 @@ btn.forEach(function(e) {
             arrayClicked[0] = "0";
         }
 
-        else if (visual.innerHTML == "0" && arrayClicked[0] == "0") {
+        else if (visual.innerHTML == "0" && arrayClicked[0] == "0" && btnClicked != ".") {
             arrayClicked.pop();
         }
 
@@ -72,6 +72,8 @@ btn.forEach(function(e) {
         }
 
         arrayClickedString = arrayClicked.join('');
+
+        
 
         let arrayDotCheck = arrayClickedString.split(' ');
 
@@ -155,19 +157,23 @@ btnAc.addEventListener('click', function(){
     if (visual.innerHTML == "0" && arrayClicked.length == 0) {
         btnAc.innerHTML = "AC";
         visual.innerHTML = "0";
+        checkLong = true;
     } else if (btnAc.innerHTML == "AC") {
         visual.innerHTML = '0';
         arrayClicked.length = 0;
         arrayClickedString = undefined;
         counting = undefined;
+        checkLong = true;
     } else if (btnAc.innerHTML == "C" && arrayClicked.length != 1) {
         arrayClicked.pop();
         arrayClickedString = arrayClicked.join('');
         visual.innerHTML = arrayClickedString;
+        checkLong = true;
     } else if (btnAc.innerHTML == "C" && arrayClicked.length == 1) {
         arrayClicked.pop();
         arrayClickedString = arrayClicked.join('');
         visual.innerHTML = "0";
+        checkLong = true;
     }
 });
 
@@ -235,6 +241,11 @@ btnPercentage.addEventListener('click', function(){
             arrayClicked.push.apply(arrayClicked, percentageCountingArray);
 
             arrayClickedString = arrayClicked.join(' ');
+
+            if (arrayClickedString[0] == 0) {
+                arrayClickedString.length = 0;
+                arrayClicked.length = 0;
+            }
 
             visual.innerHTML = arrayClickedString;
             
