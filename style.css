@@ -122,6 +122,20 @@ a:hover {
     transition: all 0.1s 0s ease; 
 }
 
+.btn:hover,
+.btn-plus-minus:hover,
+.btn-percentage:hover,
+.btn-ac:hover {
+    outline: none !important;
+}
+
+.btn:focus,
+.btn-plus-minus:focus,
+.btn-percentage:focus,
+.btn-ac:focus {
+    outline: none !important;
+}
+
 .btn-plus-minus:active,
 .btn-percentage:active,
 .btn-ac:active {
