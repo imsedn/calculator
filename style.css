@@ -58,6 +58,26 @@ button {
     -ms-touch-action: manipulation;
         touch-action: manipulation;
 }
+
+button:focus {
+    outline: none !important;
+    outline-style: none !important;
+    outline-width: 0 !important;
+    outline-color: none !important;
+}
+button:active {
+    outline: none !important;
+    outline-style: none !important;
+    outline-width: 0 !important;
+    outline-color: none !important;
+}
+button:hover {
+    outline: none !important;
+    outline-style: none !important;
+    outline-width: 0 !important;
+    outline-color: none !important;
+}
+
   
 ul,
 li {
@@ -115,32 +135,17 @@ a:hover {
 }
 .btn:active {
     background-color: #717171;
-    outline: none !important;
     -webkit-transition: all 0.1s 0s ease;
     -moz-transition: all 0.1s 0s ease;
     -o-transition: all 0.1s 0s ease;
     transition: all 0.1s 0s ease; 
 }
 
-.btn:hover,
-.btn-plus-minus:hover,
-.btn-percentage:hover,
-.btn-ac:hover {
-    outline: none !important;
-}
-
-.btn:focus,
-.btn-plus-minus:focus,
-.btn-percentage:focus,
-.btn-ac:focus {
-    outline: none !important;
-}
 
 .btn-plus-minus:active,
 .btn-percentage:active,
 .btn-ac:active {
     background-color: #fafafa;
-    outline: none !important;
     -webkit-transition: all 0.1s 0s ease;
     -moz-transition: all 0.1s 0s ease;
     -o-transition: all 0.1s 0s ease;
