@@ -8,23 +8,62 @@ let arrayClicked = [];
 let arrayClickedString;
 let counting;
 let checkLong = true;
+let lastEntered;
+
+
+
+
+function removeClassNameBtn() {
+    btn.forEach(function(e) {
+        e.classList.remove('item-orange-presed');
+       })
+}
+
+
 
 btn.forEach(function(e) {
+    
+
+    // function removeClassName() {
+    //     e.classList.remove('item-presed');
+    //     console.log(555);
+    // } 
+
     e.addEventListener( "click" , function() {
 
+        removeClassNameBtn();
+
         btnAc.innerHTML = "C";
+
+        // console.log(e);
+
+        // btn.classList.remove('item-presed');
+        // console.log(btn);
+        // console.log(btn[e].classList);
+       
+        
+        // btn.forEach(function(cls){
+        //     console.log(btn);
+        //     // btn[cls].remove('item-presed');
+        // })
+
+
 
         let btnClicked = e.innerHTML;
         let lastElemArrayClicked = arrayClicked[arrayClicked.length - 1];
 
 
         if ((btnClicked == " + " || btnClicked == " - " || btnClicked == " * "  || btnClicked == " / ") && (visual.innerHTML == '0') && (arrayClicked.length == 0 || arrayClicked[0] == "0")) {
-            arrayClicked[0] = "0"
+            arrayClicked[0] = "0";
         }
         else if ((btnClicked == " + " || btnClicked == " - " || btnClicked == " * "  || btnClicked == " / ") && (arrayClicked[0] == ".")) {
             arrayClicked[0] = "0";
         }
-
+        else if (btnClicked == "." && arrayClicked.length == 1 && typeof lastElemArrayClicked == "number") {
+            arrayClicked.length = 0;
+            arrayClicked.push("0");
+            // arrayClicked.push(".");
+        }
         else if (visual.innerHTML == "0" && arrayClicked[0] == "0" && btnClicked != ".") {
             arrayClicked.pop();
         }
@@ -71,6 +110,8 @@ btn.forEach(function(e) {
             arrayClicked.push(btnClicked);
         }
 
+       
+
         arrayClickedString = arrayClicked.join('');
 
         
@@ -82,7 +123,7 @@ btn.forEach(function(e) {
             if (last.length == 7) {
                 checkLong = false;
             }
-         }
+        }
         
         arrayDotCheck.forEach(function(el){
             let indexOfDot = el.indexOf(".") + 1;
@@ -95,7 +136,50 @@ btn.forEach(function(e) {
             }
        });
 
-       visual.innerHTML = arrayClickedString;
+
+       for (i = arrayDotCheck.length - 1; i >= 0; --i) {
+       lastEntered = arrayDotCheck[arrayDotCheck.length - 1];
+       let secondFromLastEntered = arrayDotCheck[arrayDotCheck.length - 2];
+       let thirdFromLastEntered = arrayDotCheck[arrayDotCheck.length - 3];
+
+    //    console.log(lastEntered);
+
+    // console.log(arrayDotCheck);
+
+       if (btnClicked == " + ") {
+            visual.innerHTML = thirdFromLastEntered;
+            let plus = document.getElementById( 'plus' );
+            plus.classList.add('item-orange-presed');
+          
+       } else if (btnClicked == " - ") {
+            visual.innerHTML = thirdFromLastEntered;
+            let minus = document.getElementById( 'minus' );
+            minus.classList.add('item-orange-presed');
+
+       } else if (btnClicked == " * ") {
+            visual.innerHTML = thirdFromLastEntered;
+            let multiply = document.getElementById( 'multiply' );
+            multiply.classList.add('item-orange-presed');
+
+       } else if (btnClicked == " / ") {
+            visual.innerHTML = thirdFromLastEntered;
+            let divide = document.getElementById( 'divide' );
+            divide.classList.add('item-orange-presed');
+       }
+       else {
+        visual.innerHTML = lastEntered;
+       }
+    }
+
+    // console.log(arrayClicked);
+
+
+
+        // visual.innerHTML = lastEntered;
+
+        // visual.innerHTML = arrayClickedString;
+    
+
 
     });
 })
@@ -261,7 +345,14 @@ document.addEventListener('gesturestart', function(event) {
 
 let wrap = document.querySelector(".wrap");
 let screenHeight = document.documentElement.clientHeight;
+let screenWidth = document.documentElement.clientWidth;
 
 let wrapHeight = wrap.offsetHeight;
 
-visual.style.height = screenHeight - wrapHeight + "px";
+console.log(screenWidth);
+
+if (screenWidth <= 576) {
+    visual.style.height = screenHeight - wrapHeight + "px";
+}
+
+
