@@ -16,15 +16,12 @@ let lastEntered;
 function removeClassNameBtn() {
     btn.forEach(function(e) {
         e.classList.remove('item-orange-presed');
-        e.style = "outline: none";
        })
 }
 
 
 
 btn.forEach(function(e) {
-
-    e.style = "outline: none";
     
 
     // function removeClassName() {
