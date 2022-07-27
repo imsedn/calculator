@@ -349,8 +349,6 @@ let screenWidth = document.documentElement.clientWidth;
 
 let wrapHeight = wrap.offsetHeight;
 
-console.log(screenWidth);
-
 if (screenWidth <= 576) {
     visual.style.height = screenHeight - wrapHeight + "px";
 }
