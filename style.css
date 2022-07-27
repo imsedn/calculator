@@ -57,22 +57,28 @@ button {
 }
 
 button:focus {
-    outline: none !important;
+    outline: 1px solid #e40f08 !important;
+    /* outline: none !important;
     outline-style: none !important;
     outline-width: 0 !important;
-    outline-color: none !important;
+    outline-color: none !important; */
+    border: none;
 }
 button:active {
-    outline: none !important;
+    outline: 1px solid #e40f08 !important;
+    border: none;
+    /* outline: none !important;
     outline-style: none !important;
     outline-width: 0 !important;
-    outline-color: none !important;
+    outline-color: none !important; */
 }
 button:hover {
-    outline: none !important;
+    border: none;
+    outline: 1px solid #e40f08 !important;
+    /* outline: none !important;
     outline-style: none !important;
     outline-width: 0 !important;
-    outline-color: none !important;
+    outline-color: none !important; */
 }
 
   
@@ -130,7 +136,6 @@ a:hover {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-    outline: none !important;
     -webkit-transition: all 1s 0s ease;
     -o-transition: all 1s 0s ease;
     transition: all 1s 0s ease; 
