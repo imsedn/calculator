@@ -123,6 +123,7 @@ a:hover {
 .btn-percentage,
 .btn-result,
 .btn-ac {
+    position: relative;
     font-family: 'San Francisco Text Regular';
     -webkit-font-smoothing: antialiased;
     border: none;
@@ -143,26 +144,12 @@ a:hover {
     -webkit-transition: all 1s 0s ease;
     -o-transition: all 1s 0s ease;
     transition: all 1s 0s ease; 
-
-    outline: none !important;
-    outline-width: 0 !important;
-    outline-color: none !important;
-    outline-offset: 0;
-    outline-style: none!important;
-    box-shadow: none;
 }
 .btn:active {
     background-color: #717171;
     -webkit-transition: all 0.1s 0s ease;
     -o-transition: all 0.1s 0s ease;
     transition: all 0.1s 0s ease; 
-
-    outline: none !important;
-    outline-width: 0 !important;
-    outline-color: none !important;
-    outline-offset: 0;
-    outline-style: none!important;
-    box-shadow: none;
 }
 
 
@@ -181,7 +168,7 @@ a:hover {
     padding-left: 25px;
     -webkit-box-pack: left;
         -ms-flex-pack: left;
-            justify-content: left;
+    justify-content: left;
 }
 
 .item {
@@ -193,14 +180,6 @@ a:hover {
     padding: 6px;
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
-
-
-            outline: none !important;
-    outline-width: 0 !important;
-    outline-color: none !important;
-    outline-offset: 0;
-    outline-style: none!important;
-    box-shadow: none;
 }
 
 .item-orange {
