@@ -49,6 +49,8 @@ body {
 input[type="number"] {
     -moz-appearance: textfield;
 }
+
+a:active, a:focus { outline: none; }
   
 button {
     outline: none !important;
