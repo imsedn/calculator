@@ -58,26 +58,10 @@ button {
         box-shadow: none;
 }
 
-button:focus {
-    outline: none !important;
-    outline-style: none !important;
-    outline-width: 0 !important;
-    outline-color: none !important;
-    box-shadow: none;
-   
-}
-button:active {
-    outline: none !important;
-    outline-style: none !important;
-    outline-width: 0 !important;
-    outline-color: none !important;
-    box-shadow: none;
-}
+button:focus,
+button:active,
 button:hover {
     outline: none !important;
-    outline-style: none !important;
-    outline-width: 0 !important;
-    outline-color: none !important;
     box-shadow: none;
 }
   
