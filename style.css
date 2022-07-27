@@ -62,7 +62,6 @@ button:focus {
     outline-style: none !important;
     outline-width: 0 !important;
     outline-color: none !important;
-    user-select: none;
    
 }
 button:active {
@@ -71,8 +70,6 @@ button:active {
     outline-style: none !important;
     outline-width: 0 !important;
     outline-color: none !important;
-    user-select: none;
-   
 }
 button:hover {
     border:none;
@@ -80,7 +77,6 @@ button:hover {
     outline-style: none !important;
     outline-width: 0 !important;
     outline-color: none !important;
-    user-select: none;
 }
 
   
