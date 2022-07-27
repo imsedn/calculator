@@ -60,6 +60,7 @@ button {
     outline-style: none !important;
     box-shadow: none !important;
     border:none !important;
+    user-select: none;
 }
 
 button:focus {
@@ -70,6 +71,7 @@ button:focus {
     outline-style: none !important;
     box-shadow: none !important;
     border:none !important;
+    user-select: none;
 }
 button:active {
     outline: none !important;
@@ -79,6 +81,7 @@ button:active {
     outline-style: none !important;
     box-shadow: none !important;
     border:none !important;
+    user-select: none;
 }
 button:hover {
     outline: none !important;
@@ -88,6 +91,7 @@ button:hover {
     outline-style: none !important;
     box-shadow: none !important;
     border:none !important;
+    user-select: none;
 }
   
 ul,
