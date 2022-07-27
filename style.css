@@ -68,6 +68,7 @@ button:focus {
     outline-color: none !important;
     outline-offset: 0;
     outline-style: none!important;
+    /* asldasldl */
 }
 button:active {
     outline: none !important;
