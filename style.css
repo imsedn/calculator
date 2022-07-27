@@ -55,8 +55,6 @@ button {
     -ms-touch-action: manipulation;
         touch-action: manipulation;
         user-select: none;
-        -webkit-appearance: none;
-    -webkit-tap-highlight-color: transparent;
 }
 
 button:focus {
@@ -64,8 +62,6 @@ button:focus {
     outline-style: none !important;
     outline-width: 0 !important;
     outline-color: none !important;
-    -webkit-appearance: none;
-    -webkit-tap-highlight-color: transparent;
    
 }
 button:active {
@@ -73,16 +69,12 @@ button:active {
     outline-style: none !important;
     outline-width: 0 !important;
     outline-color: none !important;
-    -webkit-appearance: none;
-    -webkit-tap-highlight-color: transparent;
 }
 button:hover {
     outline: none !important;
     outline-style: none !important;
     outline-width: 0 !important;
     outline-color: none !important;
-    -webkit-appearance: none;
-    -webkit-tap-highlight-color: transparent;
 }
   
 ul,
