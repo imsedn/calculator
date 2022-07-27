@@ -56,34 +56,38 @@ button {
         touch-action: manipulation;
     outline-width: 0 !important;
     outline-color: none !important;
-    outline-offset: 0;
-    outline-style: none!important;
-    box-shadow: none;
+    outline-offset: 0 !important;
+    outline-style: none !important;
+    box-shadow: none !important;
+    border:none !important;
 }
 
 button:focus {
     outline: none !important;
     outline-width: 0 !important;
     outline-color: none !important;
-    outline-offset: 0;
-    outline-style: none!important;
-    box-shadow: none;
+    outline-offset: 0 !important;
+    outline-style: none !important;
+    box-shadow: none !important;
+    border:none !important;
 }
 button:active {
     outline: none !important;
     outline-width: 0 !important;
     outline-color: none !important;
-    outline-offset: 0;
-    outline-style: none!important;
-    box-shadow: none;
+    outline-offset: 0 !important;
+    outline-style: none !important;
+    box-shadow: none !important;
+    border:none !important;
 }
 button:hover {
     outline: none !important;
     outline-width: 0 !important;
     outline-color: none !important;
-    outline-offset: 0;
-    outline-style: none!important;
-    box-shadow: none;
+    outline-offset: 0 !important;
+    outline-style: none !important;
+    box-shadow: none !important;
+    border:none !important;
 }
   
 ul,
