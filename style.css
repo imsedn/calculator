@@ -54,17 +54,16 @@ button {
     outline: none !important;
     -ms-touch-action: manipulation;
         touch-action: manipulation;
+        user-select: none;
 }
 
 button:focus {
-    border:none;
     outline: none !important;
     outline-style: none !important;
     outline-width: 0 !important;
     outline-color: none !important;
-    text-decoration:none;
-    background-image:none;
-    /* background:none; */
+    user-select: none;
+   
 }
 button:active {
     border:none;
@@ -72,9 +71,8 @@ button:active {
     outline-style: none !important;
     outline-width: 0 !important;
     outline-color: none !important;
-    text-decoration:none;
-    background-image:none;
-    /* background:none; */
+    user-select: none;
+   
 }
 button:hover {
     border:none;
@@ -82,9 +80,7 @@ button:hover {
     outline-style: none !important;
     outline-width: 0 !important;
     outline-color: none !important;
-    text-decoration:none;
-    background-image:none;
-    /* background:none; */
+    user-select: none;
 }
 
   
