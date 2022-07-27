@@ -61,6 +61,7 @@ button {
     box-shadow: none !important;
     border:none !important;
     user-select: none;
+    -webkit-tap-highlight-color: transparent !important;
 }
 
 button:focus {
@@ -72,6 +73,7 @@ button:focus {
     box-shadow: none !important;
     border:none !important;
     user-select: none;
+    -webkit-tap-highlight-color: transparent !important;
 }
 button:active {
     outline: none !important;
@@ -82,6 +84,7 @@ button:active {
     box-shadow: none !important;
     border:none !important;
     user-select: none;
+    -webkit-tap-highlight-color: transparent !important;
 }
 button:hover {
     outline: none !important;
@@ -92,6 +95,7 @@ button:hover {
     box-shadow: none !important;
     border:none !important;
     user-select: none;
+    -webkit-tap-highlight-color: transparent !important;
 }
   
 ul,
