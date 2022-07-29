@@ -9,6 +9,7 @@ let arrayClickedString;
 let counting;
 let checkLong = true;
 let lastEntered;
+let arrayDotCheck;
 
 
 
@@ -22,31 +23,12 @@ function removeClassNameBtn() {
 
 
 btn.forEach(function(e) {
-    
-
-    // function removeClassName() {
-    //     e.classList.remove('item-presed');
-    //     console.log(555);
-    // } 
 
     e.addEventListener( "click" , function() {
 
         removeClassNameBtn();
 
         btnAc.innerHTML = "C";
-
-        // console.log(e);
-
-        // btn.classList.remove('item-presed');
-        // console.log(btn);
-        // console.log(btn[e].classList);
-       
-        
-        // btn.forEach(function(cls){
-        //     console.log(btn);
-        //     // btn[cls].remove('item-presed');
-        // })
-
 
 
         let btnClicked = e.innerHTML;
@@ -116,11 +98,15 @@ btn.forEach(function(e) {
 
         
 
-        let arrayDotCheck = arrayClickedString.split(' ');
+        arrayDotCheck = arrayClickedString.split(' ');
 
          for (i = arrayDotCheck.length - 1; i >= 0; --i) {
             let last = arrayDotCheck[arrayDotCheck.length - 1];
-            if (last.length == 7) {
+            if (last.length == 7 && arrayClicked[arrayClicked.length - 1] == ".") {
+                arrayClicked.pop();
+                arrayClickedString = arrayClicked.join('');
+                arrayDotCheck = arrayClickedString.split(' ');
+            } else if (last.length == 7) {
                 checkLong = false;
             }
         }
@@ -133,18 +119,14 @@ btn.forEach(function(e) {
             if (ifTrue == true && btnClicked == "."){
                 arrayClicked.pop();
                 arrayClickedString = arrayClicked.join('');
+                arrayDotCheck = arrayClickedString.split(' ');
             }
        });
 
 
        for (i = arrayDotCheck.length - 1; i >= 0; --i) {
        lastEntered = arrayDotCheck[arrayDotCheck.length - 1];
-       let secondFromLastEntered = arrayDotCheck[arrayDotCheck.length - 2];
        let thirdFromLastEntered = arrayDotCheck[arrayDotCheck.length - 3];
-
-    //    console.log(lastEntered);
-
-    // console.log(arrayDotCheck);
 
        if (btnClicked == " + ") {
             visual.innerHTML = thirdFromLastEntered;
@@ -170,15 +152,6 @@ btn.forEach(function(e) {
         visual.innerHTML = lastEntered;
        }
     }
-
-    // console.log(arrayClicked);
-
-
-
-        // visual.innerHTML = lastEntered;
-
-        // visual.innerHTML = arrayClickedString;
-    
 
 
     });
@@ -236,6 +209,7 @@ btnPlusMinus.addEventListener('click', function(){
     
 });
 
+
 btnAc.addEventListener('click', function(){
 
     if (visual.innerHTML == "0" && arrayClicked.length == 0) {
@@ -251,8 +225,45 @@ btnAc.addEventListener('click', function(){
     } else if (btnAc.innerHTML == "C" && arrayClicked.length != 1) {
         arrayClicked.pop();
         arrayClickedString = arrayClicked.join('');
-        visual.innerHTML = arrayClickedString;
+        arrayDotCheck = arrayClickedString.split(' ');
+
+        for (i = arrayDotCheck.length - 1; i >= 0; --i) {
+            lastEntered = arrayDotCheck[arrayDotCheck.length - 1];
+            let secondFromLastEntered = arrayDotCheck[arrayDotCheck.length - 2];
+            let thirdFromLastEntered = arrayDotCheck[arrayDotCheck.length - 3];
+
+            if (lastEntered == "") {
+                arrayDotCheck.pop()
+                visual.innerHTML = thirdFromLastEntered;
+            }
+            else if (lastEntered == "+"){
+                visual.innerHTML = secondFromLastEntered;
+                let plus = document.getElementById( 'plus' );
+                plus.classList.add('item-orange-presed');
+            }
+            else if (lastEntered == "-"){
+                visual.innerHTML = secondFromLastEntered;
+                let minus = document.getElementById( 'minus' );
+                minus.classList.add('item-orange-presed');
+            }
+            else if (lastEntered == "/"){
+                visual.innerHTML = secondFromLastEntered;
+                let divide = document.getElementById( 'divide' );
+                divide.classList.add('item-orange-presed');
+            }
+            else if (lastEntered == "*"){
+                visual.innerHTML = secondFromLastEntered;
+                let multiply = document.getElementById( 'multiply' );
+                multiply.classList.add('item-orange-presed');
+            }
+            else {
+                removeClassNameBtn();
+                visual.innerHTML = lastEntered;
+            }
+        }
+
         checkLong = true;
+
     } else if (btnAc.innerHTML == "C" && arrayClicked.length == 1) {
         arrayClicked.pop();
         arrayClickedString = arrayClicked.join('');
