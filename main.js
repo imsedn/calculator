@@ -60,11 +60,6 @@ btn.forEach(function(e) {
             arrayClicked.pop();
         }
 
-        // else if (arrayClicked[0] == "0" && btnClicked != ".") {
-        //     arrayClicked.pop();
-        //     console.log(555);
-        // }
-
       
 
 
@@ -179,6 +174,15 @@ btn.forEach(function(e) {
 btnResult.addEventListener('click', function(){
     if (arrayClicked.length != 0 && arrayClickedString != 0) {
         counting = eval(arrayClickedString);
+    
+        counting = counting.toPrecision(8);
+
+        counting = parseFloat(counting);
+
+        if (counting % 1 == 0 && counting.toString().length > 7) {
+            counting = counting.toPrecision(5);
+        }
+        
         visual.innerHTML = counting;
         arrayClicked.length = 0;
         arrayClickedString = 0;
