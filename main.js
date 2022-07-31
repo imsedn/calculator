@@ -172,8 +172,6 @@ btn.forEach(function(e) {
        }
     }
 
-    console.log(arrayClicked);
-
     });
 })
 
