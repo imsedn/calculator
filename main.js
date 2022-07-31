@@ -46,9 +46,28 @@ btn.forEach(function(e) {
             arrayClicked.push("0");
             // arrayClicked.push(".");
         }
-        else if (visual.innerHTML == "0" && arrayClicked[0] == "0" && btnClicked != ".") {
+
+
+
+        else if (visual.innerHTML == "0" && arrayClicked.length == 1 && arrayClicked[0] == "0" && (typeof (btnClicked * 1) == "number" && btnClicked != "0" && btnClicked != ".")) {
             arrayClicked.pop();
         }
+
+
+
+        /*проблема*/
+        else if (visual.innerHTML == "0" && btnClicked == "0" && arrayClicked.length == 1) {
+            arrayClicked.pop();
+        }
+
+        // else if (arrayClicked[0] == "0" && btnClicked != ".") {
+        //     arrayClicked.pop();
+        //     console.log(555);
+        // }
+
+      
+
+
 
         else if ((btnClicked == " + " || btnClicked == " - " || btnClicked == " * "  || btnClicked == " / ") && (counting != undefined) && (arrayClickedString == 0) && arrayClicked.length == 0) {
             arrayClicked.push(counting);
@@ -153,6 +172,7 @@ btn.forEach(function(e) {
        }
     }
 
+    console.log(arrayClicked);
 
     });
 })
@@ -342,8 +362,9 @@ btnPercentage.addEventListener('click', function(){
                 arrayClicked.length = 0;
             }
 
-            visual.innerHTML = arrayClickedString;
-            
+            arrayDotCheck = arrayClickedString.split(' ');
+
+            visual.innerHTML = arrayDotCheck[arrayDotCheck.length - 1];
          }
     }
     
