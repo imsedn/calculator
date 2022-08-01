@@ -328,6 +328,10 @@ btnPercentage.addEventListener('click', function(){
             pushingResult = thirdFromTheEndElemPercentageCountingArray / (firstFromTheEndElemPercentageCountingArray / 100);
         }   
 
+        pushingResult = pushingResult.toPrecision(8);
+        pushingResult = parseFloat(pushingResult);
+
+
         let lastElemArrayClicked = arrayClicked[arrayClicked.length - 1]; 
 
         if (lastElemArrayClicked != " + " && lastElemArrayClicked != " - " && lastElemArrayClicked != " * "  && lastElemArrayClicked != " / ") {
@@ -367,6 +371,15 @@ btnPercentage.addEventListener('click', function(){
             arrayDotCheck = arrayClickedString.split(' ');
 
             visual.innerHTML = arrayDotCheck[arrayDotCheck.length - 1];
+
+
+
+           
+
+
+
+
+
 
             // let checkInteger = arrayDotCheck[arrayDotCheck.length - 1];
 
