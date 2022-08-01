@@ -253,7 +253,7 @@ btnAc.addEventListener('click', function(){
             lastEntered = arrayDotCheck[arrayDotCheck.length - 1];
             let secondFromLastEntered = arrayDotCheck[arrayDotCheck.length - 2];
             let thirdFromLastEntered = arrayDotCheck[arrayDotCheck.length - 3];
-
+            
             if (lastEntered == "") {
                 arrayDotCheck.pop()
                 visual.innerHTML = thirdFromLastEntered;
@@ -359,7 +359,7 @@ btnPercentage.addEventListener('click', function(){
 
             arrayClickedString = arrayClicked.join(' ');
 
-            if (arrayClickedString[0] == 0) {
+            if (arrayClickedString[0] == 0 && arrayClickedString[1] != ".") {
                 arrayClickedString.length = 0;
                 arrayClicked.length = 0;
             }
@@ -367,6 +367,33 @@ btnPercentage.addEventListener('click', function(){
             arrayDotCheck = arrayClickedString.split(' ');
 
             visual.innerHTML = arrayDotCheck[arrayDotCheck.length - 1];
+
+            // let checkInteger = arrayDotCheck[arrayDotCheck.length - 1];
+
+            // // console.log(checkInteger);
+
+            // let checkFloat = parseFloat(checkInteger);
+
+            // console.log(checkFloat % 1);
+            // console.log(checkInteger.length);
+
+            
+
+
+            // if (checkFloat % 1 != 0 && checkInteger.length > 7) {
+            //     checkFloat = checkInteger.toPrecision(5);
+            //     // console.log(visual.innerHTML);
+            //     console.log(555);
+            // }
+
+            // visual.innerHTML = checkFloat;
+
+
+
+            // // counting = counting.toPrecision(8);
+            // // counting = parseFloat(counting);
+
+
          }
     }
     
