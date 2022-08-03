@@ -11,16 +11,11 @@ let checkLong = true;
 let lastEntered;
 let arrayDotCheck;
 
-
-
-
 function removeClassNameBtn() {
     btn.forEach(function(e) {
         e.classList.remove('item-orange-presed');
        })
 }
-
-
 
 btn.forEach(function(e) {
 
@@ -29,7 +24,6 @@ btn.forEach(function(e) {
         removeClassNameBtn();
 
         btnAc.innerHTML = "C";
-
 
         let btnClicked = e.innerHTML;
         let lastElemArrayClicked = arrayClicked[arrayClicked.length - 1];
@@ -44,25 +38,15 @@ btn.forEach(function(e) {
         else if (btnClicked == "." && arrayClicked.length == 1 && typeof lastElemArrayClicked == "number") {
             arrayClicked.length = 0;
             arrayClicked.push("0");
-            // arrayClicked.push(".");
         }
-
-
 
         else if (visual.innerHTML == "0" && arrayClicked.length == 1 && arrayClicked[0] == "0" && (typeof (btnClicked * 1) == "number" && btnClicked != "0" && btnClicked != ".")) {
             arrayClicked.pop();
         }
 
-
-
-        /*проблема*/
         else if (visual.innerHTML == "0" && btnClicked == "0" && arrayClicked.length == 1) {
             arrayClicked.pop();
         }
-
-      
-
-
 
         else if ((btnClicked == " + " || btnClicked == " - " || btnClicked == " * "  || btnClicked == " / ") && (counting != undefined) && (arrayClickedString == 0) && arrayClicked.length == 0) {
             arrayClicked.push(counting);
@@ -85,7 +69,6 @@ btn.forEach(function(e) {
             arrayClicked.push("0");
         }
 
-        /*???*/
         else if ((btnClicked == ".") && (arrayClicked.length == 0)) {
             arrayClicked.push("0");
         }
@@ -106,11 +89,7 @@ btn.forEach(function(e) {
             arrayClicked.push(btnClicked);
         }
 
-       
-
         arrayClickedString = arrayClicked.join('');
-
-        
 
         arrayDotCheck = arrayClickedString.split(' ');
 
@@ -170,7 +149,6 @@ btn.forEach(function(e) {
     });
 })
 
-
 btnResult.addEventListener('click', function(){
     if (arrayClicked.length != 0 && arrayClickedString != 0) {
         counting = eval(arrayClickedString);
@@ -191,46 +169,45 @@ btnResult.addEventListener('click', function(){
     }
 });
 
-
-
 btnPlusMinus.addEventListener('click', function(){
 
     if (arrayClicked.length == 0 && visual.innerHTML != "0" ) {
         arrayClicked.push(visual.innerHTML);
         arrayClickedString = arrayClicked.join('');
         visual.innerHTML = arrayClickedString;
+
     } else if (arrayClicked.length == 0 && visual.innerHTML == "0" ) {
         return;
     }
 
     let arrayChangeSign = arrayClickedString.split(' ');
+    let lastArrayChangeSign = arrayChangeSign[arrayChangeSign.length - 1];
 
     for (i = arrayClicked.length - 1; i >= 0; --i) {
-         if (arrayClicked[i] == " + ")  {
-            arrayClicked[i] = " - ";
+
+        if (lastArrayChangeSign > 0 && (arrayClicked[i] == " + " || arrayClicked[i] == " - " || arrayClicked[i] == " * " || arrayClicked[i] == " / ")) {
+            arrayClicked[i + 1] = "-" + arrayClicked[i + 1];
             arrayClickedString = arrayClicked.join('');
-            visual.innerHTML = arrayClickedString;
+            arrayChangeSign = arrayClickedString.split(' ');
+            visual.innerHTML = arrayChangeSign[arrayChangeSign.length - 1];
             break;
-        } else if (arrayClicked[i] == " - ") {
-            arrayClicked[i] = " + ";
+
+        } else if (lastArrayChangeSign < 0 && (arrayClicked[i] == " + " || arrayClicked[i] == " - " || arrayClicked[i] == " * " || arrayClicked[i] == " / ")) {
+            arrayClicked[i + 1] = arrayClicked[i + 1] * -1;
             arrayClickedString = arrayClicked.join('');
-            visual.innerHTML = arrayClickedString;
+            arrayChangeSign = arrayClickedString.split(' ');
+            visual.innerHTML = arrayChangeSign[arrayChangeSign.length - 1];
             break;
-        } else if (arrayChangeSign.length == 1 && arrayChangeSign[0] * 1 > 0) {
-            arrayClicked.unshift(" - ");
+        } else if (arrayChangeSign.length == 1 && arrayClicked[i] != 0) {
+            arrayClicked[i] = arrayClicked[i] * -1;
             arrayClickedString = arrayClicked.join('');
-            visual.innerHTML = arrayClickedString;
+            arrayChangeSign = arrayClickedString.split(' ');
+            visual.innerHTML = arrayChangeSign[arrayChangeSign.length - 1];
             break;
-        } else if (arrayChangeSign.length == 1 && arrayChangeSign[0] * 1 < 0) {
-            arrayClicked[0] = Math.abs(arrayChangeSign[0])
-            arrayClickedString = arrayClicked.join('');
-            visual.innerHTML = arrayClickedString;
-            break;
-        } 
+        }
     }
     
 });
-
 
 btnAc.addEventListener('click', function(){
 
@@ -372,41 +349,6 @@ btnPercentage.addEventListener('click', function(){
 
             visual.innerHTML = arrayDotCheck[arrayDotCheck.length - 1];
 
-
-
-           
-
-
-
-
-
-
-            // let checkInteger = arrayDotCheck[arrayDotCheck.length - 1];
-
-            // // console.log(checkInteger);
-
-            // let checkFloat = parseFloat(checkInteger);
-
-            // console.log(checkFloat % 1);
-            // console.log(checkInteger.length);
-
-            
-
-
-            // if (checkFloat % 1 != 0 && checkInteger.length > 7) {
-            //     checkFloat = checkInteger.toPrecision(5);
-            //     // console.log(visual.innerHTML);
-            //     console.log(555);
-            // }
-
-            // visual.innerHTML = checkFloat;
-
-
-
-            // // counting = counting.toPrecision(8);
-            // // counting = parseFloat(counting);
-
-
          }
     }
     
@@ -415,7 +357,6 @@ btnPercentage.addEventListener('click', function(){
 document.addEventListener('gesturestart', function(event) {
     event.preventDefault();
 });
-
 
 let wrap = document.querySelector(".wrap");
 let screenHeight = document.documentElement.clientHeight;
