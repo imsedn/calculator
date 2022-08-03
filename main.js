@@ -31,6 +31,8 @@ btn.forEach(function(e) {
 
         if ((btnClicked == " + " || btnClicked == " - " || btnClicked == " * "  || btnClicked == " / ") && (visual.innerHTML == '0') && (arrayClicked.length == 0 || arrayClicked[0] == "0")) {
             arrayClicked[0] = "0";
+            visual.innerHTML = "0";
+            arrayClicked.splice(1);
         }
         else if ((btnClicked == " + " || btnClicked == " - " || btnClicked == " * "  || btnClicked == " / ") && (arrayClicked[0] == ".")) {
             arrayClicked[0] = "0";
@@ -148,26 +150,6 @@ btn.forEach(function(e) {
 
     });
 })
-
-btnResult.addEventListener('click', function(){
-    if (arrayClicked.length != 0 && arrayClickedString != 0) {
-        counting = eval(arrayClickedString);
-    
-        counting = counting.toPrecision(8);
-
-        counting = parseFloat(counting);
-
-        if (counting % 1 == 0 && counting.toString().length > 7) {
-            counting = counting.toPrecision(5);
-        }
-        
-        visual.innerHTML = counting;
-        arrayClicked.length = 0;
-        arrayClickedString = 0;
-        btnAc.innerHTML = "AC";
-        checkLong = true;
-    }
-});
 
 btnPlusMinus.addEventListener('click', function(){
 
@@ -379,4 +361,24 @@ btnAc.addEventListener('dblclick', function () {
     counting = undefined;
     checkLong = true;
     btnAc.innerHTML = "AC"
+});
+
+btnResult.addEventListener('click', function(){
+    if (arrayClicked.length != 0 && arrayClickedString != 0) {
+        counting = eval(arrayClickedString);
+    
+        counting = counting.toPrecision(8);
+
+        counting = parseFloat(counting);
+
+        if (counting % 1 == 0 && counting.toString().length > 7) {
+            counting = counting.toPrecision(5);
+        }
+        
+        visual.innerHTML = counting;
+        arrayClicked.length = 0;
+        arrayClickedString = 0;
+        btnAc.innerHTML = "AC";
+        checkLong = true;
+    }
 });
