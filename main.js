@@ -185,7 +185,15 @@ btnPlusMinus.addEventListener('click', function(){
 
     for (i = arrayClicked.length - 1; i >= 0; --i) {
 
-        if (lastArrayChangeSign > 0 && (arrayClicked[i] == " + " || arrayClicked[i] == " - " || arrayClicked[i] == " * " || arrayClicked[i] == " / ")) {
+        if (arrayChangeSign.length == 1 && arrayClicked[i] != 0) {
+            arrayClicked[0] = arrayClicked[0] * -1;
+            arrayClickedString = arrayClicked.join('');
+            arrayChangeSign = arrayClickedString.split(' ');
+            visual.innerHTML = arrayChangeSign[arrayChangeSign.length - 1];
+            break;
+        }
+
+        else if (lastArrayChangeSign > 0 && (arrayClicked[i] == " + " || arrayClicked[i] == " - " || arrayClicked[i] == " * " || arrayClicked[i] == " / ")) {
             arrayClicked[i + 1] = "-" + arrayClicked[i + 1];
             arrayClickedString = arrayClicked.join('');
             arrayChangeSign = arrayClickedString.split(' ');
@@ -198,13 +206,7 @@ btnPlusMinus.addEventListener('click', function(){
             arrayChangeSign = arrayClickedString.split(' ');
             visual.innerHTML = arrayChangeSign[arrayChangeSign.length - 1];
             break;
-        } else if (arrayChangeSign.length == 1 && arrayClicked[i] != 0) {
-            arrayClicked[i] = arrayClicked[i] * -1;
-            arrayClickedString = arrayClicked.join('');
-            arrayChangeSign = arrayClickedString.split(' ');
-            visual.innerHTML = arrayChangeSign[arrayChangeSign.length - 1];
-            break;
-        }
+        } 
     }
     
 });
