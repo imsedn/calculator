@@ -369,3 +369,12 @@ if (screenWidth <= 576) {
 }
 
 
+btnAc.addEventListener('dblclick', function () {
+    removeClassNameBtn();
+    visual.innerHTML = '0';
+    arrayClicked.length = 0;
+    arrayClickedString = undefined;
+    counting = undefined;
+    checkLong = true;
+    btnAc.innerHTML = "AC"
+});
