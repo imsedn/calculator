@@ -293,6 +293,12 @@ btnPercentage.addEventListener('click', function(){
         pushingResult = parseFloat(pushingResult);
 
 
+        if (pushingResult % 1 != 0 && pushingResult.toString().length > 7) {
+            pushingResult = pushingResult.toFixed(5);
+            pushingResult = parseFloat(pushingResult);
+        }
+
+
         let lastElemArrayClicked = arrayClicked[arrayClicked.length - 1]; 
 
         if (lastElemArrayClicked != " + " && lastElemArrayClicked != " - " && lastElemArrayClicked != " * "  && lastElemArrayClicked != " / ") {
@@ -364,15 +370,26 @@ btnAc.addEventListener('dblclick', function () {
 });
 
 btnResult.addEventListener('click', function(){
+    let lastEl = arrayClicked[arrayClicked.length - 1];
+
+    if (lastEl == " + " || lastEl == " - " || lastEl == " / " || lastEl == " * ") {
+        removeClassNameBtn();
+        arrayClicked.pop();
+        arrayClickedString = arrayClicked.join('');
+    }
     if (arrayClicked.length != 0 && arrayClickedString != 0) {
         counting = eval(arrayClickedString);
-    
+
         counting = counting.toPrecision(8);
 
         counting = parseFloat(counting);
 
         if (counting % 1 == 0 && counting.toString().length > 7) {
             counting = counting.toPrecision(5);
+
+        } else if (counting % 1 != 0 && counting.toString().length > 7) {
+            counting = counting.toFixed(5);
+            counting = parseFloat(counting);
         }
         
         visual.innerHTML = counting;
